@@ -1,4 +1,4 @@
-const LAB={"id":"atmosphere","title":"Exoplanet Atmosphere Retrieval Lab","xLabel":"Wavelength [micron]","yLabel":"Transit depth [ppm]","controls":[["temperature","Temperature [K]",1200,500,2400,10],["metallicity","Metallicity scale",1,0.1,10,0.1],["cloudTop","Cloud-top pressure proxy",0.35,0,1,0.01],["radius","Base radius depth [ppm]",14500,8000,23000,50]]};
+const LAB={"id":"atmosphere","title":"Exoplanet Atmosphere Retrieval Lab","xLabel":"Wavelength [micron]","yLabel":"Transit depth [ppm]","controls":[["temperature","Temperature [K]",1200,500,2400,10],["metallicity","Metallicity scale",1,0.1,10,0.1],["cloudTop","Cloud-top pressure proxy",0.35,0,1,0.01],["radius","Base radius depth [ppm]",19592,8000,26000,50]]};
 const state={reference:null,params:Object.fromEntries(LAB.controls.map(c=>[c[0],c[2]])),result:null,worker:null,run:0,lastFrame:performance.now(),frames:0};
 const $=id=>document.getElementById(id);
 function fmt(v,d=3){return Number.isFinite(Number(v))?Number(v).toLocaleString('en-US',{maximumFractionDigits:d}):'--'}

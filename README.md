@@ -190,9 +190,15 @@ radiative-transfer calculation.
 
 ## Reference Data
 
-`data/reference.json` holds representative water-band transmission-spectrum
-anchors (HST/JWST-style hot-Jupiter values) used to visually validate that
-the model's molecular-band rendering falls in a physically reasonable range.
+`data/reference.json` anchors its **baseline transit depth to real WASP-39 b system
+parameters** -- planet radius and stellar radius queried live from the NASA Exoplanet
+Archive TAP service (`pl_rade = 14.336 Earth radii`, `st_rad = 0.939 solar radii`) -- giving
+a genuinely computed baseline of `(Rp/Rs)^2 = 19,592 ppm`, not an arbitrary round number.
+WASP-39 b is the real JWST target with the first confident exoplanet CO2 detection (JWST
+Transiting Exoplanet Community ERS Team, 2023); the molecular-band excess amplitudes layered
+on top of that real baseline remain illustrative (not digitized from the published spectrum)
+and the reference metadata says so explicitly. The default `radius` slider value matches this
+real baseline so the model curve and reference anchors agree at default settings.
 `data/research-reference.json` holds a separate, smaller benchmark set used
 only by the repository's research-quality validation script.
 
