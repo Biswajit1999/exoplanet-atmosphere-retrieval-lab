@@ -1,0 +1,38 @@
+{
+  "dataset": "HST/JWST-style hot-Jupiter transmission anchors",
+  "source": "Representative water-band transmission-spectrum anchors for validating molecular-band rendering.",
+  "citation": "Deming, D. et al., 2013. Infrared transmission spectroscopy of the exoplanets HD 209458b and XO-1b using the Wide Field Camera-3 on the Hubble Space Telescope. The Astrophysical Journal, 774(2), p.95.",
+  "x_label": "Wavelength [micron]",
+  "y_label": "Transit depth [ppm]",
+  "points": [
+    {
+      "x": 0.9,
+      "y": 14520,
+      "label": "optical continuum"
+    },
+    {
+      "x": 1.15,
+      "y": 14640,
+      "label": "water wing"
+    },
+    {
+      "x": 1.4,
+      "y": 14820,
+      "label": "water band"
+    },
+    {
+      "x": 2.3,
+      "y": 14730,
+      "label": "CO band proxy"
+    },
+    {
+      "x": 4.3,
+      "y": 14910,
+      "label": "CO2 band proxy"
+    }
+  ],
+  "requiredCitations": [
+    "Seager, S. and Sasselov, D.D., 2000. Theoretical transmission spectra during extrasolar giant planet transits. The Astrophysical Journal, 537(2), pp.916-921.",
+    "Deming, D. et al., 2013. Infrared transmission spectroscopy of the exoplanets HD 209458b and XO-1b using the Wide Field Camera-3 on the Hubble Space Telescope. The Astrophysical Journal, 774(2), p.95."
+  ]
+}
