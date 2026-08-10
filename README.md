@@ -41,3 +41,7 @@ Representative water-band transmission-spectrum anchors for validating molecular
 
 - Seager, S. and Sasselov, D.D., 2000. Theoretical transmission spectra during extrasolar giant planet transits. The Astrophysical Journal, 537(2), pp.916-921.
 - Deming, D. et al., 2013. Infrared transmission spectroscopy of the exoplanets HD 209458b and XO-1b using the Wide Field Camera-3 on the Hubble Space Telescope. The Astrophysical Journal, 774(2), p.95.
+
+## Research Quality Upgrade
+
+See [RESEARCH_QUALITY.md](RESEARCH_QUALITY.md) for the validation layer, reference anchors, equations and research boundaries added to this repository.
