@@ -1,6 +1,6 @@
 {
   "title": "exoplanet atmosphere retrieval lab",
-  "description": "exoplanet-atmosphere-retrieval-lab upgraded with reproducibility metadata and validation.",
+  "description": "Private transmission-spectrum retrieval lab with worker-based molecular-band simulations and reference anchors.",
   "equations": [
     "Repository metadata completeness",
     "Reference-data finite anchor validation",

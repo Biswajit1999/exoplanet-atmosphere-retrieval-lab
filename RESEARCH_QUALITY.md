@@ -4,7 +4,7 @@ This repository has been upgraded with a compact research-quality layer: referen
 
 ## Scope
 
-exoplanet-atmosphere-retrieval-lab upgraded with reproducibility metadata and validation.
+Private transmission-spectrum retrieval lab with worker-based molecular-band simulations and reference anchors.
 
 ## Equations And Models
 
