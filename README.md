@@ -202,6 +202,27 @@ real baseline so the model curve and reference anchors agree at default settings
 `data/research-reference.json` holds a separate, smaller benchmark set used
 only by the repository's research-quality validation script.
 
+## What Feature Amplitude Tells Us: Clear vs. Cloudy Atmospheres
+
+The `ATMOSPHERE CHARACTER` readout classifies the current spectrum by how large its molecular
+features are relative to a cloud-free prediction, mirroring the real diagnostic used to sort
+observed hot-Jupiter transmission spectra into clear, hazy and flat categories (Sing et al.,
+2016, *Nature*, 529, pp.59-62 -- an HST comparative survey spanning genuinely clear planets
+like WASP-39b down to essentially featureless ones):
+
+- **Clear, high-altitude-cloud-free** (`cloud_transmission > 0.8`, strong features) -- comparable
+  to WASP-39b's real JWST spectrum, clear enough to reveal individual molecular species.
+- **Partially cloudy** (`cloud_transmission > 0.4`) -- muted but still detectable features,
+  comparable to HD 209458b.
+- **High-altitude cloud/haze deck** (otherwise) -- an increasingly flat, featureless spectrum,
+  comparable to GJ 1214b (Kreidberg et al., 2014, *Nature*, 505, pp.69-72) or HD 189733b's haze
+  layer -- real cases where clouds/haze suppressed the expected molecular features almost
+  entirely, which was itself an important discovery about that planet's atmosphere.
+
+Drag `cloudTopPressure` toward 0 (high, optically thick clouds) and watch the classification
+move from "clear" toward "flat/featureless" -- the same qualitative behaviour that makes cloud
+decks the dominant systematic uncertainty in real transmission-spectroscopy retrievals.
+
 ## References
 
 - Seager, S. and Sasselov, D.D., 2000. Theoretical transmission spectra during extrasolar giant planet transits. The Astrophysical Journal, 537(2), pp.916-921.
