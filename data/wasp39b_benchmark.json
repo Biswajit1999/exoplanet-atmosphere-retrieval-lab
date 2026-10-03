@@ -1,0 +1,2887 @@
+{
+  "dataset": "WASP-39 b uniform JWST transmission spectrum",
+  "doi": "10.5281/zenodo.10161743",
+  "publication_doi": "10.1038/s41550-024-02292-x",
+  "archive": {
+    "name": "ERS_DataSynthesis_Zenodo.zip",
+    "md5": "f617fa28908aa35d334062f1c06bc24d",
+    "selection": "Fit_LimbDarkening: R100 for NIRISS, NIRCam and G395H; native bins_scale1 for PRISM"
+  },
+  "transform": "depth_ppm=(Rp/Rs)^2*1e6; sigma_depth_ppm=2*(Rp/Rs)*mean(asymmetric sigma_RpRs)*1e6",
+  "covariance": "No inter-bin covariance matrix is supplied with these selected CSV products; the laboratory uses a diagonal Gaussian likelihood plus an explicit additive error-floor sensitivity parameter.",
+  "excluded_saturated_prism_bins": 35,
+  "products": [
+    {
+      "file": "NIRCam_F322W2.csv",
+      "sha256": "686b8543fe8efd8816dcff22db5814423950f7be0455f18467d7703bdf7cc143",
+      "included_bins": 49
+    },
+    {
+      "file": "NIRISS_SOSS_Order1.csv",
+      "sha256": "ca2d8f73a0f166d794e4966a1605fa853836dd49bb120ca6f6cc17df01b7bf7e",
+      "included_bins": 108
+    },
+    {
+      "file": "NIRISS_SOSS_Order2.csv",
+      "sha256": "9326538824722270e54ab283e311c6d01446a59c47e02eb1910b6a7636b67025",
+      "included_bins": 27
+    },
+    {
+      "file": "NIRSpec_G395H_NRS1.csv",
+      "sha256": "b06a8ce55e603d1ed6c551deada0eaedb59ca8c03b4e1fca880cb896d00a30f8",
+      "included_bins": 30
+    },
+    {
+      "file": "NIRSpec_G395H_NRS2.csv",
+      "sha256": "da7b680c6fec2a85c46437467b53d1cb452e81789e07bdbda82b38180bdcc327",
+      "included_bins": 29
+    },
+    {
+      "file": "NIRSpec_PRISM.csv",
+      "sha256": "d87c001bad62147ae9d000f51465be2f25d254024bacead4738a50cc4c2bca1a",
+      "included_bins": 112
+    }
+  ],
+  "points": [
+    {
+      "wavelength_um": 0.52132459,
+      "wavelength_low_um": 0.51707555,
+      "wavelength_high_um": 0.52557362,
+      "transit_depth_ppm": 20842.245,
+      "uncertainty_ppm": 304.408,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.53003623,
+      "wavelength_low_um": 0.52557362,
+      "wavelength_high_um": 0.53449885,
+      "transit_depth_ppm": 21439.283,
+      "uncertainty_ppm": 212.63,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.53919131,
+      "wavelength_low_um": 0.53449885,
+      "wavelength_high_um": 0.54388377,
+      "transit_depth_ppm": 21548.332,
+      "uncertainty_ppm": 166.462,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.5488278,
+      "wavelength_low_um": 0.54388377,
+      "wavelength_high_um": 0.55377182,
+      "transit_depth_ppm": 21539.65,
+      "uncertainty_ppm": 127.093,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.55898923,
+      "wavelength_low_um": 0.55377182,
+      "wavelength_high_um": 0.56420664,
+      "transit_depth_ppm": 21398.48,
+      "uncertainty_ppm": 101.854,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.56971933,
+      "wavelength_low_um": 0.56420664,
+      "wavelength_high_um": 0.57523202,
+      "transit_depth_ppm": 21760.165,
+      "uncertainty_ppm": 83.868,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.58106188,
+      "wavelength_low_um": 0.57523202,
+      "wavelength_high_um": 0.58689173,
+      "transit_depth_ppm": 21583.013,
+      "uncertainty_ppm": 81.225,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.59308205,
+      "wavelength_low_um": 0.58689173,
+      "wavelength_high_um": 0.59927237,
+      "transit_depth_ppm": 21888.126,
+      "uncertainty_ppm": 64.074,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.60583847,
+      "wavelength_low_um": 0.59927237,
+      "wavelength_high_um": 0.61240456,
+      "transit_depth_ppm": 21503.283,
+      "uncertainty_ppm": 62.026,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.61940148,
+      "wavelength_low_um": 0.61240456,
+      "wavelength_high_um": 0.6263984,
+      "transit_depth_ppm": 21409.135,
+      "uncertainty_ppm": 60.281,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 0.63297876,
+      "wavelength_low_um": 0.62962169,
+      "wavelength_high_um": 0.63633582,
+      "transit_depth_ppm": 20841.162,
+      "uncertainty_ppm": 140.683,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.6397093,
+      "wavelength_low_um": 0.63633582,
+      "wavelength_high_um": 0.64308278,
+      "transit_depth_ppm": 21098.317,
+      "uncertainty_ppm": 131.905,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.64647238,
+      "wavelength_low_um": 0.64308278,
+      "wavelength_high_um": 0.64986199,
+      "transit_depth_ppm": 21087.149,
+      "uncertainty_ppm": 118.772,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.65326745,
+      "wavelength_low_um": 0.64986199,
+      "wavelength_high_um": 0.65667291,
+      "transit_depth_ppm": 21057.353,
+      "uncertainty_ppm": 117.861,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.66009394,
+      "wavelength_low_um": 0.65667291,
+      "wavelength_high_um": 0.66351497,
+      "transit_depth_ppm": 21048.524,
+      "uncertainty_ppm": 106.749,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.66695129,
+      "wavelength_low_um": 0.66351497,
+      "wavelength_high_um": 0.6703876,
+      "transit_depth_ppm": 21248.901,
+      "uncertainty_ppm": 104.441,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.67383893,
+      "wavelength_low_um": 0.6703876,
+      "wavelength_high_um": 0.67729025,
+      "transit_depth_ppm": 21060.42,
+      "uncertainty_ppm": 95.636,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.68075631,
+      "wavelength_low_um": 0.67729025,
+      "wavelength_high_um": 0.68422236,
+      "transit_depth_ppm": 21012.702,
+      "uncertainty_ppm": 93.759,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.68770287,
+      "wavelength_low_um": 0.68422236,
+      "wavelength_high_um": 0.69118338,
+      "transit_depth_ppm": 20960.598,
+      "uncertainty_ppm": 93.106,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.69467805,
+      "wavelength_low_um": 0.69118338,
+      "wavelength_high_um": 0.69817272,
+      "transit_depth_ppm": 21076.991,
+      "uncertainty_ppm": 95.659,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.70190103,
+      "wavelength_low_um": 0.69817272,
+      "wavelength_high_um": 0.70562933,
+      "transit_depth_ppm": 21060.164,
+      "uncertainty_ppm": 81.412,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.71268865,
+      "wavelength_low_um": 0.70562933,
+      "wavelength_high_um": 0.71974797,
+      "transit_depth_ppm": 21022.377,
+      "uncertainty_ppm": 64.252,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.73419741,
+      "wavelength_low_um": 0.73040562,
+      "wavelength_high_um": 0.73798921,
+      "transit_depth_ppm": 21099.338,
+      "uncertainty_ppm": 79.761,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.7417949,
+      "wavelength_low_um": 0.73798921,
+      "wavelength_high_um": 0.74560059,
+      "transit_depth_ppm": 20971.867,
+      "uncertainty_ppm": 92.318,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.74941984,
+      "wavelength_low_um": 0.74560059,
+      "wavelength_high_um": 0.75323908,
+      "transit_depth_ppm": 21044.685,
+      "uncertainty_ppm": 92.257,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.75707157,
+      "wavelength_low_um": 0.75323908,
+      "wavelength_high_um": 0.76090405,
+      "transit_depth_ppm": 21014.354,
+      "uncertainty_ppm": 92.646,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.76474941,
+      "wavelength_low_um": 0.76090405,
+      "wavelength_high_um": 0.76859477,
+      "transit_depth_ppm": 21293.017,
+      "uncertainty_ppm": 93.936,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.77268,
+      "wavelength_low_um": 0.76859477,
+      "wavelength_high_um": 0.77676522,
+      "transit_depth_ppm": 21139.735,
+      "uncertainty_ppm": 96.683,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.78086414,
+      "wavelength_low_um": 0.77676522,
+      "wavelength_high_um": 0.78496305,
+      "transit_depth_ppm": 20969.408,
+      "uncertainty_ppm": 96.05,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.78907522,
+      "wavelength_low_um": 0.78496305,
+      "wavelength_high_um": 0.79318738,
+      "transit_depth_ppm": 20916.135,
+      "uncertainty_ppm": 102.958,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.79731244,
+      "wavelength_low_um": 0.79318738,
+      "wavelength_high_um": 0.80143749,
+      "transit_depth_ppm": 21077.518,
+      "uncertainty_ppm": 106.763,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.805575,
+      "wavelength_low_um": 0.80143749,
+      "wavelength_high_um": 0.80971252,
+      "transit_depth_ppm": 21092.975,
+      "uncertainty_ppm": 97.254,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.81386211,
+      "wavelength_low_um": 0.80971252,
+      "wavelength_high_um": 0.81801171,
+      "transit_depth_ppm": 21004.726,
+      "uncertainty_ppm": 113.139,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.82217297,
+      "wavelength_low_um": 0.81801171,
+      "wavelength_high_um": 0.82633424,
+      "transit_depth_ppm": 20837.154,
+      "uncertainty_ppm": 110.954,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.83050678,
+      "wavelength_low_um": 0.82633424,
+      "wavelength_high_um": 0.83467932,
+      "transit_depth_ppm": 21047.866,
+      "uncertainty_ppm": 123.949,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.83909546,
+      "wavelength_low_um": 0.83467932,
+      "wavelength_high_um": 0.8435116,
+      "transit_depth_ppm": 20973.854,
+      "uncertainty_ppm": 127.882,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.84840613,
+      "wavelength_low_um": 0.8435116,
+      "wavelength_high_um": 0.85330065,
+      "transit_depth_ppm": 20964.63,
+      "uncertainty_ppm": 125.746,
+      "instrument": "NIRISS_SOSS_Order2"
+    },
+    {
+      "wavelength_um": 0.87711328,
+      "wavelength_low_um": 0.87266087,
+      "wavelength_high_um": 0.88156569,
+      "transit_depth_ppm": 21005.328,
+      "uncertainty_ppm": 84.312,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.88602949,
+      "wavelength_low_um": 0.88156569,
+      "wavelength_high_um": 0.8904933,
+      "transit_depth_ppm": 21153.868,
+      "uncertainty_ppm": 86.06,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.89541643,
+      "wavelength_low_um": 0.8904933,
+      "wavelength_high_um": 0.90033956,
+      "transit_depth_ppm": 21151.288,
+      "uncertainty_ppm": 84.498,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.905276,
+      "wavelength_low_um": 0.90033956,
+      "wavelength_high_um": 0.91021244,
+      "transit_depth_ppm": 21167.407,
+      "uncertainty_ppm": 79.412,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.91516194,
+      "wavelength_low_um": 0.91021244,
+      "wavelength_high_um": 0.92011144,
+      "transit_depth_ppm": 21103.507,
+      "uncertainty_ppm": 74.225,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.92507376,
+      "wavelength_low_um": 0.92011144,
+      "wavelength_high_um": 0.93003608,
+      "transit_depth_ppm": 21318.867,
+      "uncertainty_ppm": 75.683,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.93501097,
+      "wavelength_low_um": 0.93003608,
+      "wavelength_high_um": 0.93998587,
+      "transit_depth_ppm": 21316.901,
+      "uncertainty_ppm": 72.009,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.9449731,
+      "wavelength_low_um": 0.93998587,
+      "wavelength_high_um": 0.94996034,
+      "transit_depth_ppm": 21325.191,
+      "uncertainty_ppm": 75.686,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.95495967,
+      "wavelength_low_um": 0.94996034,
+      "wavelength_high_um": 0.95995901,
+      "transit_depth_ppm": 21234.332,
+      "uncertainty_ppm": 72.608,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.96497022,
+      "wavelength_low_um": 0.95995901,
+      "wavelength_high_um": 0.96998142,
+      "transit_depth_ppm": 21267.183,
+      "uncertainty_ppm": 76.061,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.97500426,
+      "wavelength_low_um": 0.96998142,
+      "wavelength_high_um": 0.9800271,
+      "transit_depth_ppm": 21072.409,
+      "uncertainty_ppm": 74.078,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.98506135,
+      "wavelength_low_um": 0.9800271,
+      "wavelength_high_um": 0.9900956,
+      "transit_depth_ppm": 20897.132,
+      "uncertainty_ppm": 67.476,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 0.99514102,
+      "wavelength_low_um": 0.9900956,
+      "wavelength_high_um": 1.00018644,
+      "transit_depth_ppm": 21103.507,
+      "uncertainty_ppm": 63.994,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.00524282,
+      "wavelength_low_um": 1.00018644,
+      "wavelength_high_um": 1.01029919,
+      "transit_depth_ppm": 21086.709,
+      "uncertainty_ppm": 65.572,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.01582747,
+      "wavelength_low_um": 1.01029919,
+      "wavelength_high_um": 1.02135574,
+      "transit_depth_ppm": 21009.994,
+      "uncertainty_ppm": 66.629,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.0268965,
+      "wavelength_low_um": 1.02135574,
+      "wavelength_high_um": 1.03243726,
+      "transit_depth_ppm": 21026.026,
+      "uncertainty_ppm": 63.205,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.03799022,
+      "wavelength_low_um": 1.03243726,
+      "wavelength_high_um": 1.04354319,
+      "transit_depth_ppm": 21004.076,
+      "uncertainty_ppm": 62.234,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.04910808,
+      "wavelength_low_um": 1.04354319,
+      "wavelength_high_um": 1.05467297,
+      "transit_depth_ppm": 20997.835,
+      "uncertainty_ppm": 61.362,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.0602495,
+      "wavelength_low_um": 1.05467297,
+      "wavelength_high_um": 1.06582604,
+      "transit_depth_ppm": 21112.372,
+      "uncertainty_ppm": 60.051,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.07141394,
+      "wavelength_low_um": 1.06582604,
+      "wavelength_high_um": 1.07700184,
+      "transit_depth_ppm": 21035.905,
+      "uncertainty_ppm": 56.498,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.08260083,
+      "wavelength_low_um": 1.07700184,
+      "wavelength_high_um": 1.08819983,
+      "transit_depth_ppm": 21333.479,
+      "uncertainty_ppm": 60.865,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.09380965,
+      "wavelength_low_um": 1.08819983,
+      "wavelength_high_um": 1.09941947,
+      "transit_depth_ppm": 21144.946,
+      "uncertainty_ppm": 65.558,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.10503988,
+      "wavelength_low_um": 1.09941947,
+      "wavelength_high_um": 1.11066028,
+      "transit_depth_ppm": 21311.991,
+      "uncertainty_ppm": 61.707,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.116291,
+      "wavelength_low_um": 1.11066028,
+      "wavelength_high_um": 1.12192172,
+      "transit_depth_ppm": 21430.575,
+      "uncertainty_ppm": 57.683,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.12803299,
+      "wavelength_low_um": 1.12192172,
+      "wavelength_high_um": 1.13414426,
+      "transit_depth_ppm": 21367.826,
+      "uncertainty_ppm": 54.214,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.140267,
+      "wavelength_low_um": 1.13414426,
+      "wavelength_high_um": 1.14638974,
+      "transit_depth_ppm": 21423.742,
+      "uncertainty_ppm": 54.83,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.15252364,
+      "wavelength_low_um": 1.14638974,
+      "wavelength_high_um": 1.15865755,
+      "transit_depth_ppm": 21247.82,
+      "uncertainty_ppm": 56.012,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.1648023,
+      "wavelength_low_um": 1.15865755,
+      "wavelength_high_um": 1.17094706,
+      "transit_depth_ppm": 21349.889,
+      "uncertainty_ppm": 60.138,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.17710233,
+      "wavelength_low_um": 1.17094706,
+      "wavelength_high_um": 1.18325761,
+      "transit_depth_ppm": 21289.888,
+      "uncertainty_ppm": 56.102,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.18942312,
+      "wavelength_low_um": 1.18325761,
+      "wavelength_high_um": 1.19558862,
+      "transit_depth_ppm": 21169.017,
+      "uncertainty_ppm": 57.56,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.20176407,
+      "wavelength_low_um": 1.19558862,
+      "wavelength_high_um": 1.20793952,
+      "transit_depth_ppm": 21248.989,
+      "uncertainty_ppm": 54.342,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.21412459,
+      "wavelength_low_um": 1.20793952,
+      "wavelength_high_um": 1.22030966,
+      "transit_depth_ppm": 21180.052,
+      "uncertainty_ppm": 50.072,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.22650408,
+      "wavelength_low_um": 1.22030966,
+      "wavelength_high_um": 1.23269849,
+      "transit_depth_ppm": 21209.713,
+      "uncertainty_ppm": 54.313,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.24320184,
+      "wavelength_low_um": 1.23269849,
+      "wavelength_high_um": 1.25370518,
+      "transit_depth_ppm": 21094.339,
+      "uncertainty_ppm": 46.795,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.26231557,
+      "wavelength_low_um": 1.25561735,
+      "wavelength_high_um": 1.2690138,
+      "transit_depth_ppm": 21005.1,
+      "uncertainty_ppm": 55.688,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.27572157,
+      "wavelength_low_um": 1.2690138,
+      "wavelength_high_um": 1.28242934,
+      "transit_depth_ppm": 20978.574,
+      "uncertainty_ppm": 58.886,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.28914636,
+      "wavelength_low_um": 1.28242934,
+      "wavelength_high_um": 1.29586337,
+      "transit_depth_ppm": 20997.686,
+      "uncertainty_ppm": 52.299,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.30258927,
+      "wavelength_low_um": 1.29586337,
+      "wavelength_high_um": 1.30931517,
+      "transit_depth_ppm": 20991.679,
+      "uncertainty_ppm": 57.537,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.31604964,
+      "wavelength_low_um": 1.30931517,
+      "wavelength_high_um": 1.32278411,
+      "transit_depth_ppm": 21216.084,
+      "uncertainty_ppm": 60.257,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.32952684,
+      "wavelength_low_um": 1.32278411,
+      "wavelength_high_um": 1.33626957,
+      "transit_depth_ppm": 21375.807,
+      "uncertainty_ppm": 61.188,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.34302024,
+      "wavelength_low_um": 1.33626957,
+      "wavelength_high_um": 1.3497709,
+      "transit_depth_ppm": 21454.024,
+      "uncertainty_ppm": 62.143,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.35701223,
+      "wavelength_low_um": 1.3497709,
+      "wavelength_high_um": 1.36425356,
+      "transit_depth_ppm": 21734.878,
+      "uncertainty_ppm": 57.825,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.37150328,
+      "wavelength_low_um": 1.36425356,
+      "wavelength_high_um": 1.378753,
+      "transit_depth_ppm": 21607.414,
+      "uncertainty_ppm": 62.272,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.38601077,
+      "wavelength_low_um": 1.378753,
+      "wavelength_high_um": 1.39326853,
+      "transit_depth_ppm": 21582.254,
+      "uncertainty_ppm": 55.813,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.40053398,
+      "wavelength_low_um": 1.39326853,
+      "wavelength_high_um": 1.40779943,
+      "transit_depth_ppm": 21628.74,
+      "uncertainty_ppm": 64.216,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.41507221,
+      "wavelength_low_um": 1.40779943,
+      "wavelength_high_um": 1.422345,
+      "transit_depth_ppm": 21606.956,
+      "uncertainty_ppm": 63.271,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.4296248,
+      "wavelength_low_um": 1.422345,
+      "wavelength_high_um": 1.4369046,
+      "transit_depth_ppm": 21727.056,
+      "uncertainty_ppm": 58.897,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.44419106,
+      "wavelength_low_um": 1.4369046,
+      "wavelength_high_um": 1.45147752,
+      "transit_depth_ppm": 21679.633,
+      "uncertainty_ppm": 64.727,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.45925676,
+      "wavelength_low_um": 1.45147752,
+      "wavelength_high_um": 1.467036,
+      "transit_depth_ppm": 21459.648,
+      "uncertainty_ppm": 59.395,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.47482209,
+      "wavelength_low_um": 1.467036,
+      "wavelength_high_um": 1.48260817,
+      "transit_depth_ppm": 21546.609,
+      "uncertainty_ppm": 61.447,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.49040074,
+      "wavelength_low_um": 1.48260817,
+      "wavelength_high_um": 1.49819332,
+      "transit_depth_ppm": 21360.562,
+      "uncertainty_ppm": 57.095,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.50599201,
+      "wavelength_low_um": 1.49819332,
+      "wavelength_high_um": 1.51379071,
+      "transit_depth_ppm": 21383.924,
+      "uncertainty_ppm": 66.221,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.52159518,
+      "wavelength_low_um": 1.51379071,
+      "wavelength_high_um": 1.52939965,
+      "transit_depth_ppm": 21234.866,
+      "uncertainty_ppm": 62.232,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.53720957,
+      "wavelength_low_um": 1.52939965,
+      "wavelength_high_um": 1.54501948,
+      "transit_depth_ppm": 21173.692,
+      "uncertainty_ppm": 66.633,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.55283451,
+      "wavelength_low_um": 1.54501948,
+      "wavelength_high_um": 1.56064953,
+      "transit_depth_ppm": 21186.739,
+      "uncertainty_ppm": 72.188,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.56895824,
+      "wavelength_low_um": 1.56064953,
+      "wavelength_high_um": 1.57726695,
+      "transit_depth_ppm": 21240.327,
+      "uncertainty_ppm": 62.203,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.58558071,
+      "wavelength_low_um": 1.57726695,
+      "wavelength_high_um": 1.59389447,
+      "transit_depth_ppm": 21012.504,
+      "uncertainty_ppm": 60.812,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.60221291,
+      "wavelength_low_um": 1.59389447,
+      "wavelength_high_um": 1.61053136,
+      "transit_depth_ppm": 21047.136,
+      "uncertainty_ppm": 64.943,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.61885416,
+      "wavelength_low_um": 1.61053136,
+      "wavelength_high_um": 1.62717696,
+      "transit_depth_ppm": 21064.051,
+      "uncertainty_ppm": 68.479,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.63550377,
+      "wavelength_low_um": 1.62717696,
+      "wavelength_high_um": 1.64383059,
+      "transit_depth_ppm": 21038.634,
+      "uncertainty_ppm": 68.16,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.65216111,
+      "wavelength_low_um": 1.64383059,
+      "wavelength_high_um": 1.66049163,
+      "transit_depth_ppm": 20940.317,
+      "uncertainty_ppm": 69.311,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.66931589,
+      "wavelength_low_um": 1.66049163,
+      "wavelength_high_um": 1.67814015,
+      "transit_depth_ppm": 20930.476,
+      "uncertainty_ppm": 68.773,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.68696788,
+      "wavelength_low_um": 1.67814015,
+      "wavelength_high_um": 1.69579561,
+      "transit_depth_ppm": 21011.94,
+      "uncertainty_ppm": 75.413,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.70462649,
+      "wavelength_low_um": 1.69579561,
+      "wavelength_high_um": 1.71345736,
+      "transit_depth_ppm": 20873.03,
+      "uncertainty_ppm": 71.972,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.72229108,
+      "wavelength_low_um": 1.71345736,
+      "wavelength_high_um": 1.73112479,
+      "transit_depth_ppm": 21056.923,
+      "uncertainty_ppm": 77.136,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.73996105,
+      "wavelength_low_um": 1.73112479,
+      "wavelength_high_um": 1.74879731,
+      "transit_depth_ppm": 21129.667,
+      "uncertainty_ppm": 75.916,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.75763583,
+      "wavelength_low_um": 1.74879731,
+      "wavelength_high_um": 1.76647436,
+      "transit_depth_ppm": 21358.456,
+      "uncertainty_ppm": 76.956,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.77580609,
+      "wavelength_low_um": 1.76647436,
+      "wavelength_high_um": 1.78513782,
+      "transit_depth_ppm": 21237.731,
+      "uncertainty_ppm": 80.238,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.79447149,
+      "wavelength_low_um": 1.78513782,
+      "wavelength_high_um": 1.80380517,
+      "transit_depth_ppm": 21322.398,
+      "uncertainty_ppm": 80.228,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.81314053,
+      "wavelength_low_um": 1.80380517,
+      "wavelength_high_um": 1.8224759,
+      "transit_depth_ppm": 21289.663,
+      "uncertainty_ppm": 85.513,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.8318127,
+      "wavelength_low_um": 1.8224759,
+      "wavelength_high_um": 1.8411495,
+      "transit_depth_ppm": 21394.757,
+      "uncertainty_ppm": 94.056,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.85048752,
+      "wavelength_low_um": 1.8411495,
+      "wavelength_high_um": 1.85982554,
+      "transit_depth_ppm": 21727.665,
+      "uncertainty_ppm": 89.504,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.86965612,
+      "wavelength_low_um": 1.85982554,
+      "wavelength_high_um": 1.8794867,
+      "transit_depth_ppm": 21574.747,
+      "uncertainty_ppm": 87.941,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.88931819,
+      "wavelength_low_um": 1.8794867,
+      "wavelength_high_um": 1.89914968,
+      "transit_depth_ppm": 21614.322,
+      "uncertainty_ppm": 91.014,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.90898188,
+      "wavelength_low_um": 1.89914968,
+      "wavelength_high_um": 1.91881409,
+      "transit_depth_ppm": 21387.731,
+      "uncertainty_ppm": 96.083,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.92864685,
+      "wavelength_low_um": 1.91881409,
+      "wavelength_high_um": 1.93847961,
+      "transit_depth_ppm": 21363.445,
+      "uncertainty_ppm": 92.558,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.94831279,
+      "wavelength_low_um": 1.93847961,
+      "wavelength_high_um": 1.95814597,
+      "transit_depth_ppm": 21356.014,
+      "uncertainty_ppm": 96.417,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.96847113,
+      "wavelength_low_um": 1.95814597,
+      "wavelength_high_um": 1.97879629,
+      "transit_depth_ppm": 21600.481,
+      "uncertainty_ppm": 97.9,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 1.99010507,
+      "wavelength_low_um": 1.97879629,
+      "wavelength_high_um": 2.00141385,
+      "transit_depth_ppm": 21133.281,
+      "uncertainty_ppm": 97.63,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.03042389,
+      "wavelength_low_um": 2.0200982,
+      "wavelength_high_um": 2.04074957,
+      "transit_depth_ppm": 21501.182,
+      "uncertainty_ppm": 102.164,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.05107537,
+      "wavelength_low_um": 2.04074957,
+      "wavelength_high_um": 2.06140117,
+      "transit_depth_ppm": 21292.206,
+      "uncertainty_ppm": 103.199,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.07221882,
+      "wavelength_low_um": 2.06140117,
+      "wavelength_high_um": 2.08303647,
+      "transit_depth_ppm": 21220.881,
+      "uncertainty_ppm": 110.383,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.09385432,
+      "wavelength_low_um": 2.08303647,
+      "wavelength_high_um": 2.10467218,
+      "transit_depth_ppm": 21080.318,
+      "uncertainty_ppm": 107.681,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.11549034,
+      "wavelength_low_um": 2.10467218,
+      "wavelength_high_um": 2.12630851,
+      "transit_depth_ppm": 20972.166,
+      "uncertainty_ppm": 111.331,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.13712711,
+      "wavelength_low_um": 2.12630851,
+      "wavelength_high_um": 2.14794572,
+      "transit_depth_ppm": 21057.81,
+      "uncertainty_ppm": 116.158,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.15925673,
+      "wavelength_low_um": 2.14794572,
+      "wavelength_high_um": 2.17056775,
+      "transit_depth_ppm": 21047.871,
+      "uncertainty_ppm": 117.241,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.16754122,
+      "wavelength_low_um": 2.14135291,
+      "wavelength_high_um": 2.19372954,
+      "transit_depth_ppm": 21099.655,
+      "uncertainty_ppm": 38.972,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.18187967,
+      "wavelength_low_um": 2.17056775,
+      "wavelength_high_um": 2.19319159,
+      "transit_depth_ppm": 20815.082,
+      "uncertainty_ppm": 114.015,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.2045047,
+      "wavelength_low_um": 2.19319159,
+      "wavelength_high_um": 2.21581781,
+      "transit_depth_ppm": 20967.561,
+      "uncertainty_ppm": 122.234,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.21947554,
+      "wavelength_low_um": 2.19372954,
+      "wavelength_high_um": 2.24522154,
+      "transit_depth_ppm": 21007.767,
+      "uncertainty_ppm": 39.572,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.22664046,
+      "wavelength_low_um": 2.21581781,
+      "wavelength_high_um": 2.23746311,
+      "transit_depth_ppm": 20855.684,
+      "uncertainty_ppm": 124.505,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.25074762,
+      "wavelength_low_um": 2.23943102,
+      "wavelength_high_um": 2.26206422,
+      "transit_depth_ppm": 20904.871,
+      "uncertainty_ppm": 123.543,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.27053495,
+      "wavelength_low_um": 2.24522154,
+      "wavelength_high_um": 2.29584836,
+      "transit_depth_ppm": 21079.455,
+      "uncertainty_ppm": 42.515,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.27928973,
+      "wavelength_low_um": 2.26206422,
+      "wavelength_high_um": 2.29651524,
+      "transit_depth_ppm": 21112.519,
+      "uncertainty_ppm": 102.334,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.32073972,
+      "wavelength_low_um": 2.29584836,
+      "wavelength_high_um": 2.34563108,
+      "transit_depth_ppm": 21216.038,
+      "uncertainty_ppm": 44.282,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.32310216,
+      "wavelength_low_um": 2.31128406,
+      "wavelength_high_um": 2.33492027,
+      "transit_depth_ppm": 20978.193,
+      "uncertainty_ppm": 128.155,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.34674267,
+      "wavelength_low_um": 2.33492027,
+      "wavelength_high_um": 2.35856508,
+      "transit_depth_ppm": 21078.784,
+      "uncertainty_ppm": 141.682,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.37011217,
+      "wavelength_low_um": 2.34563108,
+      "wavelength_high_um": 2.39459327,
+      "transit_depth_ppm": 21450.356,
+      "uncertainty_ppm": 44.814,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.3708854,
+      "wavelength_low_um": 2.35856508,
+      "wavelength_high_um": 2.38320573,
+      "transit_depth_ppm": 21335.242,
+      "uncertainty_ppm": 139.452,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.40687903,
+      "wavelength_low_um": 2.38320573,
+      "wavelength_high_um": 2.43055233,
+      "transit_depth_ppm": 21086.719,
+      "uncertainty_ppm": 119.765,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.41867673,
+      "wavelength_low_um": 2.39459327,
+      "wavelength_high_um": 2.4427602,
+      "transit_depth_ppm": 21376.218,
+      "uncertainty_ppm": 44.559,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.43278325,
+      "wavelength_low_um": 2.42035961,
+      "wavelength_high_um": 2.44520688,
+      "transit_depth_ppm": 21187.407,
+      "uncertainty_ppm": 143.491,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.44486811,
+      "wavelength_low_um": 2.43252629,
+      "wavelength_high_um": 2.45720993,
+      "transit_depth_ppm": 21320.335,
+      "uncertainty_ppm": 145.159,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.45764053,
+      "wavelength_low_um": 2.44520688,
+      "wavelength_high_um": 2.47007418,
+      "transit_depth_ppm": 21461.183,
+      "uncertainty_ppm": 123.802,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.46645739,
+      "wavelength_low_um": 2.4427602,
+      "wavelength_high_um": 2.49015458,
+      "transit_depth_ppm": 21633.165,
+      "uncertainty_ppm": 45.471,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.4700551,
+      "wavelength_low_um": 2.45720993,
+      "wavelength_high_um": 2.48290027,
+      "transit_depth_ppm": 21616.376,
+      "uncertainty_ppm": 153.865,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.48299623,
+      "wavelength_low_um": 2.47007418,
+      "wavelength_high_um": 2.49591827,
+      "transit_depth_ppm": 21479.933,
+      "uncertainty_ppm": 123.058,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.48883229,
+      "wavelength_low_um": 2.48388879,
+      "wavelength_high_um": 2.49377578,
+      "transit_depth_ppm": 21129.298,
+      "uncertainty_ppm": 244.001,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.50885105,
+      "wavelength_low_um": 2.49591827,
+      "wavelength_high_um": 2.52178383,
+      "transit_depth_ppm": 21499.867,
+      "uncertainty_ppm": 121.959,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.5134793,
+      "wavelength_low_um": 2.49015458,
+      "wavelength_high_um": 2.53680402,
+      "transit_depth_ppm": 21709.909,
+      "uncertainty_ppm": 46.288,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.52098618,
+      "wavelength_low_um": 2.50861276,
+      "wavelength_high_um": 2.5333596,
+      "transit_depth_ppm": 21606.962,
+      "uncertainty_ppm": 169.419,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.53472686,
+      "wavelength_low_um": 2.52178383,
+      "wavelength_high_um": 2.54766989,
+      "transit_depth_ppm": 21422.777,
+      "uncertainty_ppm": 113.878,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.5597676,
+      "wavelength_low_um": 2.53680402,
+      "wavelength_high_um": 2.58273117,
+      "transit_depth_ppm": 21838.083,
+      "uncertainty_ppm": 49.678,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.56062293,
+      "wavelength_low_um": 2.54766989,
+      "wavelength_high_um": 2.57357597,
+      "transit_depth_ppm": 21636.958,
+      "uncertainty_ppm": 117.324,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.56606842,
+      "wavelength_low_um": 2.55317515,
+      "wavelength_high_um": 2.57896168,
+      "transit_depth_ppm": 21557.372,
+      "uncertainty_ppm": 189.159,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.58701921,
+      "wavelength_low_um": 2.57357597,
+      "wavelength_high_um": 2.60046244,
+      "transit_depth_ppm": 21439.27,
+      "uncertainty_ppm": 109.305,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.59236805,
+      "wavelength_low_um": 2.57896168,
+      "wavelength_high_um": 2.60577441,
+      "transit_depth_ppm": 21335.23,
+      "uncertainty_ppm": 179.216,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.60534597,
+      "wavelength_low_um": 2.58273117,
+      "wavelength_high_um": 2.62796076,
+      "transit_depth_ppm": 21914.655,
+      "uncertainty_ppm": 48.346,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.6139164,
+      "wavelength_low_um": 2.60046244,
+      "wavelength_high_um": 2.62737036,
+      "transit_depth_ppm": 21439.188,
+      "uncertainty_ppm": 109.796,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.61920004,
+      "wavelength_low_um": 2.60577441,
+      "wavelength_high_um": 2.63262567,
+      "transit_depth_ppm": 21200.128,
+      "uncertainty_ppm": 174.245,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.64083457,
+      "wavelength_low_um": 2.62737036,
+      "wavelength_high_um": 2.65429878,
+      "transit_depth_ppm": 21653.717,
+      "uncertainty_ppm": 101.7,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.64607238,
+      "wavelength_low_um": 2.63262567,
+      "wavelength_high_um": 2.65951909,
+      "transit_depth_ppm": 21734.416,
+      "uncertainty_ppm": 186.317,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.65023886,
+      "wavelength_low_um": 2.62796076,
+      "wavelength_high_um": 2.67251695,
+      "transit_depth_ppm": 22081.051,
+      "uncertainty_ppm": 48.777,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.66777313,
+      "wavelength_low_um": 2.65429878,
+      "wavelength_high_um": 2.68124747,
+      "transit_depth_ppm": 21869.431,
+      "uncertainty_ppm": 105.007,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.68198237,
+      "wavelength_low_um": 2.65951909,
+      "wavelength_high_um": 2.70444565,
+      "transit_depth_ppm": 21879.665,
+      "uncertainty_ppm": 160.195,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.69446923,
+      "wavelength_low_um": 2.67251695,
+      "wavelength_high_um": 2.7164215,
+      "transit_depth_ppm": 22163.081,
+      "uncertainty_ppm": 55.77,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.69521344,
+      "wavelength_low_um": 2.68124747,
+      "wavelength_high_um": 2.7091794,
+      "transit_depth_ppm": 21806.089,
+      "uncertainty_ppm": 89.95,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.72046126,
+      "wavelength_low_um": 2.70644564,
+      "wavelength_high_um": 2.73447688,
+      "transit_depth_ppm": 21792.074,
+      "uncertainty_ppm": 197.529,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.72315598,
+      "wavelength_low_um": 2.7091794,
+      "wavelength_high_um": 2.73713255,
+      "transit_depth_ppm": 21861.61,
+      "uncertainty_ppm": 118.078,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.73805928,
+      "wavelength_low_um": 2.7164215,
+      "wavelength_high_um": 2.75969705,
+      "transit_depth_ppm": 22076.28,
+      "uncertainty_ppm": 52.238,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.73882486,
+      "wavelength_low_um": 2.72490633,
+      "wavelength_high_um": 2.75274338,
+      "transit_depth_ppm": 22104.616,
+      "uncertainty_ppm": 389.154,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.74852341,
+      "wavelength_low_um": 2.73447688,
+      "wavelength_high_um": 2.76256994,
+      "transit_depth_ppm": 21504.125,
+      "uncertainty_ppm": 225.72,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.75111938,
+      "wavelength_low_um": 2.73713255,
+      "wavelength_high_um": 2.7651062,
+      "transit_depth_ppm": 21798.741,
+      "uncertainty_ppm": 97.133,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.76668919,
+      "wavelength_low_um": 2.75274338,
+      "wavelength_high_um": 2.78063499,
+      "transit_depth_ppm": 22079.693,
+      "uncertainty_ppm": 156.775,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.77910292,
+      "wavelength_low_um": 2.7651062,
+      "wavelength_high_um": 2.79309964,
+      "transit_depth_ppm": 21765.822,
+      "uncertainty_ppm": 107.854,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.78103157,
+      "wavelength_low_um": 2.75969705,
+      "wavelength_high_um": 2.80236609,
+      "transit_depth_ppm": 22086.212,
+      "uncertainty_ppm": 59.903,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.78118307,
+      "wavelength_low_um": 2.76256994,
+      "wavelength_high_um": 2.7997962,
+      "transit_depth_ppm": 21771.48,
+      "uncertainty_ppm": 199.278,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.79488853,
+      "wavelength_low_um": 2.78063499,
+      "wavelength_high_um": 2.80914206,
+      "transit_depth_ppm": 22133.766,
+      "uncertainty_ppm": 108.816,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.8048368,
+      "wavelength_low_um": 2.80181198,
+      "wavelength_high_um": 2.80786161,
+      "transit_depth_ppm": 21798.829,
+      "uncertainty_ppm": 485.856,
+      "instrument": "NIRISS_SOSS_Order1"
+    },
+    {
+      "wavelength_um": 2.80758941,
+      "wavelength_low_um": 2.79309964,
+      "wavelength_high_um": 2.82207918,
+      "transit_depth_ppm": 21914.667,
+      "uncertainty_ppm": 94.606,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.8233931,
+      "wavelength_low_um": 2.80914206,
+      "wavelength_high_um": 2.83764414,
+      "transit_depth_ppm": 22038.628,
+      "uncertainty_ppm": 92.176,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.82340633,
+      "wavelength_low_um": 2.80236609,
+      "wavelength_high_um": 2.84444657,
+      "transit_depth_ppm": 22295.257,
+      "uncertainty_ppm": 59.505,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.83657932,
+      "wavelength_low_um": 2.82207918,
+      "wavelength_high_um": 2.85107946,
+      "transit_depth_ppm": 21726.212,
+      "uncertainty_ppm": 129.547,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.85226135,
+      "wavelength_low_um": 2.83764414,
+      "wavelength_high_um": 2.86687856,
+      "transit_depth_ppm": 22030.601,
+      "uncertainty_ppm": 78.291,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.86520343,
+      "wavelength_low_um": 2.84444657,
+      "wavelength_high_um": 2.88596029,
+      "transit_depth_ppm": 22068.097,
+      "uncertainty_ppm": 59.712,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.86558962,
+      "wavelength_low_um": 2.85107946,
+      "wavelength_high_um": 2.88009977,
+      "transit_depth_ppm": 21617.54,
+      "uncertainty_ppm": 114.009,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.88146339,
+      "wavelength_low_um": 2.86687856,
+      "wavelength_high_um": 2.89604822,
+      "transit_depth_ppm": 21930.117,
+      "uncertainty_ppm": 105.344,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.89510393,
+      "wavelength_low_um": 2.88009977,
+      "wavelength_high_um": 2.91010809,
+      "transit_depth_ppm": 21804.526,
+      "uncertainty_ppm": 121.307,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.90644269,
+      "wavelength_low_um": 2.88596029,
+      "wavelength_high_um": 2.92692509,
+      "transit_depth_ppm": 22040.855,
+      "uncertainty_ppm": 62.071,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.91099881,
+      "wavelength_low_um": 2.89604822,
+      "wavelength_high_um": 2.92594939,
+      "transit_depth_ppm": 21828.281,
+      "uncertainty_ppm": 79.871,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.92512238,
+      "wavelength_low_um": 2.91010809,
+      "wavelength_high_um": 2.94013667,
+      "transit_depth_ppm": 21650.265,
+      "uncertainty_ppm": 88.06,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.9408671,
+      "wavelength_low_um": 2.92594939,
+      "wavelength_high_um": 2.95578481,
+      "transit_depth_ppm": 21701.477,
+      "uncertainty_ppm": 81.658,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.94714187,
+      "wavelength_low_um": 2.92692509,
+      "wavelength_high_um": 2.96735866,
+      "transit_depth_ppm": 21851.552,
+      "uncertainty_ppm": 66.426,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 2.95516098,
+      "wavelength_low_um": 2.94013667,
+      "wavelength_high_um": 2.97018528,
+      "transit_depth_ppm": 21803.066,
+      "uncertainty_ppm": 98.735,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.97106783,
+      "wavelength_low_um": 2.95578481,
+      "wavelength_high_um": 2.98635084,
+      "transit_depth_ppm": 21654.091,
+      "uncertainty_ppm": 71.149,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 2.98521936,
+      "wavelength_low_um": 2.97018528,
+      "wavelength_high_um": 3.00025344,
+      "transit_depth_ppm": 21542.689,
+      "uncertainty_ppm": 96.409,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 2.98731856,
+      "wavelength_low_um": 2.96735866,
+      "wavelength_high_um": 3.00727847,
+      "transit_depth_ppm": 21862.897,
+      "uncertainty_ppm": 67.416,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.00160048,
+      "wavelength_low_um": 2.98635084,
+      "wavelength_high_um": 3.01685011,
+      "transit_depth_ppm": 21565.915,
+      "uncertainty_ppm": 88.996,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.01578236,
+      "wavelength_low_um": 3.00025344,
+      "wavelength_high_um": 3.03131127,
+      "transit_depth_ppm": 21478.928,
+      "uncertainty_ppm": 105.238,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.02698971,
+      "wavelength_low_um": 3.00727847,
+      "wavelength_high_um": 3.04670095,
+      "transit_depth_ppm": 21856.942,
+      "uncertainty_ppm": 67.974,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.03209595,
+      "wavelength_low_um": 3.01685011,
+      "wavelength_high_um": 3.04734178,
+      "transit_depth_ppm": 21493.029,
+      "uncertainty_ppm": 72.205,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.04685009,
+      "wavelength_low_um": 3.03131127,
+      "wavelength_high_um": 3.0623889,
+      "transit_depth_ppm": 21358.816,
+      "uncertainty_ppm": 89.22,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.06295228,
+      "wavelength_low_um": 3.04734178,
+      "wavelength_high_um": 3.07856278,
+      "transit_depth_ppm": 21383.234,
+      "uncertainty_ppm": 119.422,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.06617129,
+      "wavelength_low_um": 3.04670095,
+      "wavelength_high_um": 3.08564163,
+      "transit_depth_ppm": 21725.268,
+      "uncertainty_ppm": 65.494,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.07793713,
+      "wavelength_low_um": 3.0623889,
+      "wavelength_high_um": 3.09348536,
+      "transit_depth_ppm": 21440.313,
+      "uncertainty_ppm": 92.732,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.09413919,
+      "wavelength_low_um": 3.07856278,
+      "wavelength_high_um": 3.10971561,
+      "transit_depth_ppm": 21405.423,
+      "uncertainty_ppm": 71.572,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.10487864,
+      "wavelength_low_um": 3.08564163,
+      "wavelength_high_um": 3.12411564,
+      "transit_depth_ppm": 21642.774,
+      "uncertainty_ppm": 65.252,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.10952914,
+      "wavelength_low_um": 3.09348536,
+      "wavelength_high_um": 3.12557292,
+      "transit_depth_ppm": 21469.485,
+      "uncertainty_ppm": 99.886,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.12565617,
+      "wavelength_low_um": 3.10971561,
+      "wavelength_high_um": 3.14159672,
+      "transit_depth_ppm": 21310.284,
+      "uncertainty_ppm": 66.241,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.14162624,
+      "wavelength_low_um": 3.12557292,
+      "wavelength_high_um": 3.15767956,
+      "transit_depth_ppm": 21447.211,
+      "uncertainty_ppm": 114.852,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.14312648,
+      "wavelength_low_um": 3.12411564,
+      "wavelength_high_um": 3.16213732,
+      "transit_depth_ppm": 21666.251,
+      "uncertainty_ppm": 67.397,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.15750265,
+      "wavelength_low_um": 3.14159672,
+      "wavelength_high_um": 3.17340858,
+      "transit_depth_ppm": 21352.332,
+      "uncertainty_ppm": 97.562,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.17374206,
+      "wavelength_low_um": 3.15767956,
+      "wavelength_high_um": 3.18980455,
+      "transit_depth_ppm": 21137.507,
+      "uncertainty_ppm": 88.455,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.18092878,
+      "wavelength_low_um": 3.16213732,
+      "wavelength_high_um": 3.19972024,
+      "transit_depth_ppm": 21515.908,
+      "uncertainty_ppm": 68.987,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.18964799,
+      "wavelength_low_um": 3.17340858,
+      "wavelength_high_um": 3.2058874,
+      "transit_depth_ppm": 21260.454,
+      "uncertainty_ppm": 85.647,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.2063632,
+      "wavelength_low_um": 3.18980455,
+      "wavelength_high_um": 3.22292185,
+      "transit_depth_ppm": 21289.181,
+      "uncertainty_ppm": 90.142,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.21829887,
+      "wavelength_low_um": 3.19972024,
+      "wavelength_high_um": 3.2368775,
+      "transit_depth_ppm": 21618.165,
+      "uncertainty_ppm": 73.88,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.22213677,
+      "wavelength_low_um": 3.2058874,
+      "wavelength_high_um": 3.23838615,
+      "transit_depth_ppm": 21307.711,
+      "uncertainty_ppm": 81.734,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.23948944,
+      "wavelength_low_um": 3.22292185,
+      "wavelength_high_um": 3.25605702,
+      "transit_depth_ppm": 21241.179,
+      "uncertainty_ppm": 86.232,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.25496837,
+      "wavelength_low_um": 3.23838615,
+      "wavelength_high_um": 3.27155059,
+      "transit_depth_ppm": 21341.678,
+      "uncertainty_ppm": 65.312,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.25524969,
+      "wavelength_low_um": 3.2368775,
+      "wavelength_high_um": 3.27362189,
+      "transit_depth_ppm": 21363.778,
+      "uncertainty_ppm": 75.221,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.27263343,
+      "wavelength_low_um": 3.25605702,
+      "wavelength_high_um": 3.28920984,
+      "transit_depth_ppm": 21031.578,
+      "uncertainty_ppm": 93.591,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.28811213,
+      "wavelength_low_um": 3.27155059,
+      "wavelength_high_um": 3.30467367,
+      "transit_depth_ppm": 21275.877,
+      "uncertainty_ppm": 75.164,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.29179329,
+      "wavelength_low_um": 3.27362189,
+      "wavelength_high_um": 3.30996469,
+      "transit_depth_ppm": 21319.907,
+      "uncertainty_ppm": 73.757,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.30628252,
+      "wavelength_low_um": 3.28920984,
+      "wavelength_high_um": 3.3233552,
+      "transit_depth_ppm": 21027.595,
+      "uncertainty_ppm": 86.855,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.32156729,
+      "wavelength_low_um": 3.30467367,
+      "wavelength_high_um": 3.33846092,
+      "transit_depth_ppm": 21196.024,
+      "uncertainty_ppm": 101.261,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.32794129,
+      "wavelength_low_um": 3.30996469,
+      "wavelength_high_um": 3.3459179,
+      "transit_depth_ppm": 21406.214,
+      "uncertainty_ppm": 71.1,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.34043646,
+      "wavelength_low_um": 3.3233552,
+      "wavelength_high_um": 3.35751772,
+      "transit_depth_ppm": 21244.692,
+      "uncertainty_ppm": 82.515,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.35537883,
+      "wavelength_low_um": 3.33846092,
+      "wavelength_high_um": 3.37229673,
+      "transit_depth_ppm": 21236.329,
+      "uncertainty_ppm": 66.452,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.36370498,
+      "wavelength_low_um": 3.3459179,
+      "wavelength_high_um": 3.38149206,
+      "transit_depth_ppm": 21450.753,
+      "uncertainty_ppm": 80.815,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.37460732,
+      "wavelength_low_um": 3.35751772,
+      "wavelength_high_um": 3.39169693,
+      "transit_depth_ppm": 21286.348,
+      "uncertainty_ppm": 96.842,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.38951566,
+      "wavelength_low_um": 3.37229673,
+      "wavelength_high_um": 3.40673459,
+      "transit_depth_ppm": 21196.416,
+      "uncertainty_ppm": 65.098,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.39909504,
+      "wavelength_low_um": 3.38149206,
+      "wavelength_high_um": 3.41669802,
+      "transit_depth_ppm": 21405.552,
+      "uncertainty_ppm": 78.429,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.4092828,
+      "wavelength_low_um": 3.39169693,
+      "wavelength_high_um": 3.42686868,
+      "transit_depth_ppm": 21021.545,
+      "uncertainty_ppm": 93.899,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.42394692,
+      "wavelength_low_um": 3.40673459,
+      "wavelength_high_um": 3.44115924,
+      "transit_depth_ppm": 21232.678,
+      "uncertainty_ppm": 72.194,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.43412187,
+      "wavelength_low_um": 3.41669802,
+      "wavelength_high_um": 3.45154572,
+      "transit_depth_ppm": 21411.426,
+      "uncertainty_ppm": 78.564,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.44446242,
+      "wavelength_low_um": 3.42686868,
+      "wavelength_high_um": 3.46205616,
+      "transit_depth_ppm": 21329.151,
+      "uncertainty_ppm": 88.187,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.45870213,
+      "wavelength_low_um": 3.44115924,
+      "wavelength_high_um": 3.47624502,
+      "transit_depth_ppm": 21194.219,
+      "uncertainty_ppm": 69.006,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.46879529,
+      "wavelength_low_um": 3.45154572,
+      "wavelength_high_um": 3.48604485,
+      "transit_depth_ppm": 21343.989,
+      "uncertainty_ppm": 80.883,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.47965741,
+      "wavelength_low_um": 3.46205616,
+      "wavelength_high_um": 3.49725866,
+      "transit_depth_ppm": 20953.665,
+      "uncertainty_ppm": 83.442,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.49411794,
+      "wavelength_low_um": 3.47624502,
+      "wavelength_high_um": 3.51199085,
+      "transit_depth_ppm": 21196.058,
+      "uncertainty_ppm": 65.736,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.50312475,
+      "wavelength_low_um": 3.48604485,
+      "wavelength_high_um": 3.52020464,
+      "transit_depth_ppm": 21262.265,
+      "uncertainty_ppm": 84.59,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.51535618,
+      "wavelength_low_um": 3.49725866,
+      "wavelength_high_um": 3.5334537,
+      "transit_depth_ppm": 21026.143,
+      "uncertainty_ppm": 83.894,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.52985621,
+      "wavelength_low_um": 3.51199085,
+      "wavelength_high_um": 3.54772158,
+      "transit_depth_ppm": 21221.774,
+      "uncertainty_ppm": 65.607,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.53711911,
+      "wavelength_low_um": 3.52020464,
+      "wavelength_high_um": 3.55403357,
+      "transit_depth_ppm": 21352.188,
+      "uncertainty_ppm": 85.631,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.55155814,
+      "wavelength_low_um": 3.5334537,
+      "wavelength_high_um": 3.56966257,
+      "transit_depth_ppm": 21127.015,
+      "uncertainty_ppm": 89.988,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.56594681,
+      "wavelength_low_um": 3.54772158,
+      "wavelength_high_um": 3.58417204,
+      "transit_depth_ppm": 21144.859,
+      "uncertainty_ppm": 71.445,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.57078671,
+      "wavelength_low_um": 3.55403357,
+      "wavelength_high_um": 3.58753985,
+      "transit_depth_ppm": 21448.55,
+      "uncertainty_ppm": 84.473,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.5877738,
+      "wavelength_low_um": 3.56966257,
+      "wavelength_high_um": 3.60588503,
+      "transit_depth_ppm": 21075.311,
+      "uncertainty_ppm": 85.456,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.60235852,
+      "wavelength_low_um": 3.58417204,
+      "wavelength_high_um": 3.62054499,
+      "transit_depth_ppm": 21230.451,
+      "uncertainty_ppm": 71.707,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.60413636,
+      "wavelength_low_um": 3.58753985,
+      "wavelength_high_um": 3.62073287,
+      "transit_depth_ppm": 21354.035,
+      "uncertainty_ppm": 84.591,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.62449193,
+      "wavelength_low_um": 3.60588503,
+      "wavelength_high_um": 3.64309883,
+      "transit_depth_ppm": 21009.466,
+      "uncertainty_ppm": 84.303,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.63717616,
+      "wavelength_low_um": 3.62073287,
+      "wavelength_high_um": 3.65361945,
+      "transit_depth_ppm": 21392.904,
+      "uncertainty_ppm": 86.831,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.63905977,
+      "wavelength_low_um": 3.62054499,
+      "wavelength_high_um": 3.65757454,
+      "transit_depth_ppm": 21002.884,
+      "uncertainty_ppm": 71.365,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.66171193,
+      "wavelength_low_um": 3.64309883,
+      "wavelength_high_um": 3.68032503,
+      "transit_depth_ppm": 20979.656,
+      "uncertainty_ppm": 79.22,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.66991333,
+      "wavelength_low_um": 3.65361945,
+      "wavelength_high_um": 3.6862072,
+      "transit_depth_ppm": 21434.373,
+      "uncertainty_ppm": 89.561,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.68650739,
+      "wavelength_low_um": 3.65757454,
+      "wavelength_high_um": 3.71544024,
+      "transit_depth_ppm": 21098.473,
+      "uncertainty_ppm": 59.636,
+      "instrument": "NIRSpec_G395H_NRS1"
+    },
+    {
+      "wavelength_um": 3.69894361,
+      "wavelength_low_um": 3.68032503,
+      "wavelength_high_um": 3.7175622,
+      "transit_depth_ppm": 21100.574,
+      "uncertainty_ppm": 102.707,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.70235551,
+      "wavelength_low_um": 3.6862072,
+      "wavelength_high_um": 3.71850381,
+      "transit_depth_ppm": 21005.133,
+      "uncertainty_ppm": 96.75,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.73450988,
+      "wavelength_low_um": 3.71850381,
+      "wavelength_high_um": 3.75051594,
+      "transit_depth_ppm": 21351.023,
+      "uncertainty_ppm": 97.499,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.73667586,
+      "wavelength_low_um": 3.7175622,
+      "wavelength_high_um": 3.75578952,
+      "transit_depth_ppm": 20879.677,
+      "uncertainty_ppm": 85.032,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.76638287,
+      "wavelength_low_um": 3.75051594,
+      "wavelength_high_um": 3.78224979,
+      "transit_depth_ppm": 21198.109,
+      "uncertainty_ppm": 97.906,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.77490819,
+      "wavelength_low_um": 3.75578952,
+      "wavelength_high_um": 3.79402685,
+      "transit_depth_ppm": 21060.745,
+      "uncertainty_ppm": 97.479,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.79798139,
+      "wavelength_low_um": 3.78224979,
+      "wavelength_high_um": 3.81371299,
+      "transit_depth_ppm": 21186.725,
+      "uncertainty_ppm": 95.566,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.81364012,
+      "wavelength_low_um": 3.79402685,
+      "wavelength_high_um": 3.83325338,
+      "transit_depth_ppm": 20752.398,
+      "uncertainty_ppm": 89.305,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.82931203,
+      "wavelength_low_um": 3.81371299,
+      "wavelength_high_um": 3.84491106,
+      "transit_depth_ppm": 21162.613,
+      "uncertainty_ppm": 102.117,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.84864454,
+      "wavelength_low_um": 3.82917394,
+      "wavelength_high_um": 3.86811514,
+      "transit_depth_ppm": 20930.904,
+      "uncertainty_ppm": 106.533,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 3.8528707,
+      "wavelength_low_um": 3.83325338,
+      "wavelength_high_um": 3.87248802,
+      "transit_depth_ppm": 21041.566,
+      "uncertainty_ppm": 89.828,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.86038012,
+      "wavelength_low_um": 3.84491106,
+      "wavelength_high_um": 3.87584917,
+      "transit_depth_ppm": 21154.303,
+      "uncertainty_ppm": 104.12,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.88791056,
+      "wavelength_low_um": 3.86811514,
+      "wavelength_high_um": 3.90770598,
+      "transit_depth_ppm": 21118.144,
+      "uncertainty_ppm": 74.588,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 3.89119166,
+      "wavelength_low_um": 3.87584917,
+      "wavelength_high_um": 3.90653414,
+      "transit_depth_ppm": 21027.004,
+      "uncertainty_ppm": 103.592,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.89210868,
+      "wavelength_low_um": 3.87248802,
+      "wavelength_high_um": 3.91172934,
+      "transit_depth_ppm": 20803.817,
+      "uncertainty_ppm": 104.602,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.92175277,
+      "wavelength_low_um": 3.90653414,
+      "wavelength_high_um": 3.9369714,
+      "transit_depth_ppm": 21186.127,
+      "uncertainty_ppm": 102.937,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.92745905,
+      "wavelength_low_um": 3.90770598,
+      "wavelength_high_um": 3.94721211,
+      "transit_depth_ppm": 20940.037,
+      "uncertainty_ppm": 79.187,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 3.93184352,
+      "wavelength_low_um": 3.91172934,
+      "wavelength_high_um": 3.9519577,
+      "transit_depth_ppm": 20970.17,
+      "uncertainty_ppm": 96.113,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 3.9520688,
+      "wavelength_low_um": 3.9369714,
+      "wavelength_high_um": 3.96716621,
+      "transit_depth_ppm": 21099.503,
+      "uncertainty_ppm": 108.436,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.96732003,
+      "wavelength_low_um": 3.94721211,
+      "wavelength_high_um": 3.98742796,
+      "transit_depth_ppm": 21185.223,
+      "uncertainty_ppm": 76.441,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 3.98214496,
+      "wavelength_low_um": 3.96716621,
+      "wavelength_high_um": 3.99712372,
+      "transit_depth_ppm": 21411.488,
+      "uncertainty_ppm": 109.953,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 3.98826718,
+      "wavelength_low_um": 3.9519577,
+      "wavelength_high_um": 4.02457666,
+      "transit_depth_ppm": 21028.98,
+      "uncertainty_ppm": 110.661,
+      "instrument": "NIRCam_F322W2"
+    },
+    {
+      "wavelength_um": 4.0078588,
+      "wavelength_low_um": 3.98742796,
+      "wavelength_high_um": 4.02828965,
+      "transit_depth_ppm": 21360.683,
+      "uncertainty_ppm": 72.723,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.01198632,
+      "wavelength_low_um": 3.99712372,
+      "wavelength_high_um": 4.02684892,
+      "transit_depth_ppm": 21497.41,
+      "uncertainty_ppm": 116.35,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.04159782,
+      "wavelength_low_um": 4.02684892,
+      "wavelength_high_um": 4.05634671,
+      "transit_depth_ppm": 21563.908,
+      "uncertainty_ppm": 113.476,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.04870798,
+      "wavelength_low_um": 4.02828965,
+      "wavelength_high_um": 4.06912632,
+      "transit_depth_ppm": 21262.449,
+      "uncertainty_ppm": 84.195,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.07098427,
+      "wavelength_low_um": 4.05634671,
+      "wavelength_high_um": 4.08562182,
+      "transit_depth_ppm": 21343.558,
+      "uncertainty_ppm": 111.199,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.08986634,
+      "wavelength_low_um": 4.06912632,
+      "wavelength_high_um": 4.11060636,
+      "transit_depth_ppm": 21436.872,
+      "uncertainty_ppm": 80.021,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.10015032,
+      "wavelength_low_um": 4.08562182,
+      "wavelength_high_um": 4.11467883,
+      "transit_depth_ppm": 20999.997,
+      "uncertainty_ppm": 116.368,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.12909994,
+      "wavelength_low_um": 4.11467883,
+      "wavelength_high_um": 4.14352105,
+      "transit_depth_ppm": 21077.158,
+      "uncertainty_ppm": 125.3,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.1316357,
+      "wavelength_low_um": 4.11060636,
+      "wavelength_high_um": 4.15266503,
+      "transit_depth_ppm": 21198.891,
+      "uncertainty_ppm": 83.988,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.15783741,
+      "wavelength_low_um": 4.14352105,
+      "wavelength_high_um": 4.17215376,
+      "transit_depth_ppm": 21464.778,
+      "uncertainty_ppm": 123.053,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.17371177,
+      "wavelength_low_um": 4.15266503,
+      "wavelength_high_um": 4.19475852,
+      "transit_depth_ppm": 21156.159,
+      "uncertainty_ppm": 86.941,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.18636758,
+      "wavelength_low_um": 4.17215376,
+      "wavelength_high_um": 4.2005814,
+      "transit_depth_ppm": 21405.827,
+      "uncertainty_ppm": 124.633,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.21469427,
+      "wavelength_low_um": 4.2005814,
+      "wavelength_high_um": 4.22880714,
+      "transit_depth_ppm": 21978.589,
+      "uncertainty_ppm": 131.744,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.2161247,
+      "wavelength_low_um": 4.19475852,
+      "wavelength_high_um": 4.23749088,
+      "transit_depth_ppm": 21669.1,
+      "uncertainty_ppm": 87.271,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.24282089,
+      "wavelength_low_um": 4.22880714,
+      "wavelength_high_um": 4.25683464,
+      "transit_depth_ppm": 22150.155,
+      "uncertainty_ppm": 125.789,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.25914384,
+      "wavelength_low_um": 4.23749088,
+      "wavelength_high_um": 4.2807968,
+      "transit_depth_ppm": 22246.822,
+      "uncertainty_ppm": 83.464,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.27075178,
+      "wavelength_low_um": 4.25683464,
+      "wavelength_high_um": 4.28466892,
+      "transit_depth_ppm": 22596.434,
+      "uncertainty_ppm": 124.123,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.29849027,
+      "wavelength_low_um": 4.28466892,
+      "wavelength_high_um": 4.31231163,
+      "transit_depth_ppm": 22601.952,
+      "uncertainty_ppm": 124.852,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.30246562,
+      "wavelength_low_um": 4.2807968,
+      "wavelength_high_um": 4.32413444,
+      "transit_depth_ppm": 22557.752,
+      "uncertainty_ppm": 90.154,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.32603999,
+      "wavelength_low_um": 4.31231163,
+      "wavelength_high_um": 4.33976836,
+      "transit_depth_ppm": 22587.69,
+      "uncertainty_ppm": 133.057,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.34612017,
+      "wavelength_low_um": 4.32413444,
+      "wavelength_high_um": 4.3681059,
+      "transit_depth_ppm": 22755.816,
+      "uncertainty_ppm": 96.876,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.35340442,
+      "wavelength_low_um": 4.33976836,
+      "wavelength_high_um": 4.36704047,
+      "transit_depth_ppm": 22936.696,
+      "uncertainty_ppm": 133.801,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.38058686,
+      "wavelength_low_um": 4.36704047,
+      "wavelength_high_um": 4.39413325,
+      "transit_depth_ppm": 22670.148,
+      "uncertainty_ppm": 142.264,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.39037558,
+      "wavelength_low_um": 4.3681059,
+      "wavelength_high_um": 4.41264525,
+      "transit_depth_ppm": 22470.68,
+      "uncertainty_ppm": 94.793,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.40759065,
+      "wavelength_low_um": 4.39413325,
+      "wavelength_high_um": 4.42104805,
+      "transit_depth_ppm": 22739.483,
+      "uncertainty_ppm": 142.407,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.43441857,
+      "wavelength_low_um": 4.42104805,
+      "wavelength_high_um": 4.44778909,
+      "transit_depth_ppm": 22549.094,
+      "uncertainty_ppm": 143.813,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.43526144,
+      "wavelength_low_um": 4.41264525,
+      "wavelength_high_um": 4.45787762,
+      "transit_depth_ppm": 22347.238,
+      "uncertainty_ppm": 95.485,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.46107431,
+      "wavelength_low_um": 4.44778909,
+      "wavelength_high_um": 4.47435954,
+      "transit_depth_ppm": 21945.219,
+      "uncertainty_ppm": 145.279,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.4804431,
+      "wavelength_low_um": 4.45787762,
+      "wavelength_high_um": 4.50300858,
+      "transit_depth_ppm": 22144.603,
+      "uncertainty_ppm": 95.815,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.48756044,
+      "wavelength_low_um": 4.47435954,
+      "wavelength_high_um": 4.50076134,
+      "transit_depth_ppm": 22347.445,
+      "uncertainty_ppm": 146.848,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.51387962,
+      "wavelength_low_um": 4.50076134,
+      "wavelength_high_um": 4.52699789,
+      "transit_depth_ppm": 21774.058,
+      "uncertainty_ppm": 149.499,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.52588673,
+      "wavelength_low_um": 4.50300858,
+      "wavelength_high_um": 4.54876487,
+      "transit_depth_ppm": 21737.651,
+      "uncertainty_ppm": 104.512,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.54003508,
+      "wavelength_low_um": 4.52699789,
+      "wavelength_high_um": 4.55307227,
+      "transit_depth_ppm": 21889.416,
+      "uncertainty_ppm": 158.548,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.56602964,
+      "wavelength_low_um": 4.55307227,
+      "wavelength_high_um": 4.57898701,
+      "transit_depth_ppm": 21750.438,
+      "uncertainty_ppm": 156.848,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.57198656,
+      "wavelength_low_um": 4.54876487,
+      "wavelength_high_um": 4.59520825,
+      "transit_depth_ppm": 21830.961,
+      "uncertainty_ppm": 105.551,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.59186563,
+      "wavelength_low_um": 4.57898701,
+      "wavelength_high_um": 4.60474425,
+      "transit_depth_ppm": 21753.265,
+      "uncertainty_ppm": 152.507,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.6175456,
+      "wavelength_low_um": 4.60474425,
+      "wavelength_high_um": 4.63034696,
+      "transit_depth_ppm": 21677.978,
+      "uncertainty_ppm": 161.768,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.61870783,
+      "wavelength_low_um": 4.59520825,
+      "wavelength_high_um": 4.64220742,
+      "transit_depth_ppm": 21396.369,
+      "uncertainty_ppm": 110.427,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.64307213,
+      "wavelength_low_um": 4.63034696,
+      "wavelength_high_um": 4.65579731,
+      "transit_depth_ppm": 21638.071,
+      "uncertainty_ppm": 158.593,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.6656846,
+      "wavelength_low_um": 4.64220742,
+      "wavelength_high_um": 4.68916178,
+      "transit_depth_ppm": 21474.16,
+      "uncertainty_ppm": 115.517,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.66844766,
+      "wavelength_low_um": 4.65579731,
+      "wavelength_high_um": 4.68109801,
+      "transit_depth_ppm": 21505.181,
+      "uncertainty_ppm": 166.771,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.69367468,
+      "wavelength_low_um": 4.68109801,
+      "wavelength_high_um": 4.70625136,
+      "transit_depth_ppm": 21621.377,
+      "uncertainty_ppm": 164.565,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.71294664,
+      "wavelength_low_um": 4.68916178,
+      "wavelength_high_um": 4.73673151,
+      "transit_depth_ppm": 21525.696,
+      "uncertainty_ppm": 112.989,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.7187555,
+      "wavelength_low_um": 4.70625136,
+      "wavelength_high_um": 4.73125965,
+      "transit_depth_ppm": 21798.55,
+      "uncertainty_ppm": 174.11,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.74369237,
+      "wavelength_low_um": 4.73125965,
+      "wavelength_high_um": 4.75612509,
+      "transit_depth_ppm": 21571.36,
+      "uncertainty_ppm": 170.931,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.76082248,
+      "wavelength_low_um": 4.73673151,
+      "wavelength_high_um": 4.78491346,
+      "transit_depth_ppm": 21414.077,
+      "uncertainty_ppm": 120.086,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.76848748,
+      "wavelength_low_um": 4.75612509,
+      "wavelength_high_um": 4.78084988,
+      "transit_depth_ppm": 21862.347,
+      "uncertainty_ppm": 162.056,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.79314301,
+      "wavelength_low_um": 4.78084988,
+      "wavelength_high_um": 4.80543614,
+      "transit_depth_ppm": 21643.128,
+      "uncertainty_ppm": 175.418,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.80932515,
+      "wavelength_low_um": 4.78491346,
+      "wavelength_high_um": 4.83373684,
+      "transit_depth_ppm": 21578.079,
+      "uncertainty_ppm": 112.407,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.81766091,
+      "wavelength_low_um": 4.80543614,
+      "wavelength_high_um": 4.82988568,
+      "transit_depth_ppm": 21577.577,
+      "uncertainty_ppm": 170.586,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.84204325,
+      "wavelength_low_um": 4.82988568,
+      "wavelength_high_um": 4.85420081,
+      "transit_depth_ppm": 21773.587,
+      "uncertainty_ppm": 175.904,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.85841865,
+      "wavelength_low_um": 4.83373684,
+      "wavelength_high_um": 4.88310045,
+      "transit_depth_ppm": 21436.133,
+      "uncertainty_ppm": 130.8,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.86629213,
+      "wavelength_low_um": 4.85420081,
+      "wavelength_high_um": 4.87838344,
+      "transit_depth_ppm": 21548.176,
+      "uncertainty_ppm": 190.468,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.89040935,
+      "wavelength_low_um": 4.87838344,
+      "wavelength_high_um": 4.90243526,
+      "transit_depth_ppm": 21270.667,
+      "uncertainty_ppm": 194.824,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.90777017,
+      "wavelength_low_um": 4.88310045,
+      "wavelength_high_um": 4.93243988,
+      "transit_depth_ppm": 21640.298,
+      "uncertainty_ppm": 119.014,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.91439691,
+      "wavelength_low_um": 4.90243526,
+      "wavelength_high_um": 4.92635857,
+      "transit_depth_ppm": 21233.195,
+      "uncertainty_ppm": 177.016,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.9382568,
+      "wavelength_low_um": 4.92635857,
+      "wavelength_high_um": 4.95015503,
+      "transit_depth_ppm": 21705.273,
+      "uncertainty_ppm": 185.658,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.95740921,
+      "wavelength_low_um": 4.93243988,
+      "wavelength_high_um": 4.98237854,
+      "transit_depth_ppm": 21472.951,
+      "uncertainty_ppm": 110.789,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 4.96199065,
+      "wavelength_low_um": 4.95015503,
+      "wavelength_high_um": 4.97382627,
+      "transit_depth_ppm": 21960.793,
+      "uncertainty_ppm": 186.708,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 4.98560012,
+      "wavelength_low_um": 4.97382627,
+      "wavelength_high_um": 4.99737398,
+      "transit_depth_ppm": 21198.6,
+      "uncertainty_ppm": 201.443,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.00764543,
+      "wavelength_low_um": 4.98237854,
+      "wavelength_high_um": 5.03291232,
+      "transit_depth_ppm": 21225.031,
+      "uncertainty_ppm": 129.91,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 5.00908715,
+      "wavelength_low_um": 4.99737398,
+      "wavelength_high_um": 5.02080032,
+      "transit_depth_ppm": 21399.693,
+      "uncertainty_ppm": 185.472,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.03245336,
+      "wavelength_low_um": 5.02080032,
+      "wavelength_high_um": 5.0441064,
+      "transit_depth_ppm": 21151.576,
+      "uncertainty_ppm": 207.777,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.05570025,
+      "wavelength_low_um": 5.0441064,
+      "wavelength_high_um": 5.0672941,
+      "transit_depth_ppm": 21501.571,
+      "uncertainty_ppm": 188.18,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.0584746,
+      "wavelength_low_um": 5.03291232,
+      "wavelength_high_um": 5.08403687,
+      "transit_depth_ppm": 21354.703,
+      "uncertainty_ppm": 129.881,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 5.07882966,
+      "wavelength_low_um": 5.0672941,
+      "wavelength_high_um": 5.09036521,
+      "transit_depth_ppm": 21660.659,
+      "uncertainty_ppm": 209.486,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.10184311,
+      "wavelength_low_um": 5.09036521,
+      "wavelength_high_um": 5.11332102,
+      "transit_depth_ppm": 21111.669,
+      "uncertainty_ppm": 212.311,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.12474198,
+      "wavelength_low_um": 5.11332102,
+      "wavelength_high_um": 5.13616294,
+      "transit_depth_ppm": 21597.661,
+      "uncertainty_ppm": 212.037,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.12786128,
+      "wavelength_low_um": 5.08403687,
+      "wavelength_high_um": 5.17168569,
+      "transit_depth_ppm": 21246.518,
+      "uncertainty_ppm": 117.405,
+      "instrument": "NIRSpec_G395H_NRS2"
+    },
+    {
+      "wavelength_um": 5.14752783,
+      "wavelength_low_um": 5.13616294,
+      "wavelength_high_um": 5.15889271,
+      "transit_depth_ppm": 21646.097,
+      "uncertainty_ppm": 221.212,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.1702022,
+      "wavelength_low_um": 5.15889271,
+      "wavelength_high_um": 5.18151169,
+      "transit_depth_ppm": 21259.118,
+      "uncertainty_ppm": 220.91,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.19276652,
+      "wavelength_low_um": 5.18151169,
+      "wavelength_high_um": 5.20402134,
+      "transit_depth_ppm": 21114.514,
+      "uncertainty_ppm": 222.0,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.21522219,
+      "wavelength_low_um": 5.20402134,
+      "wavelength_high_um": 5.22642304,
+      "transit_depth_ppm": 21572.262,
+      "uncertainty_ppm": 231.264,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.23757059,
+      "wavelength_low_um": 5.22642304,
+      "wavelength_high_um": 5.24871814,
+      "transit_depth_ppm": 21686.915,
+      "uncertainty_ppm": 228.308,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.25981309,
+      "wavelength_low_um": 5.24871814,
+      "wavelength_high_um": 5.27090805,
+      "transit_depth_ppm": 21346.569,
+      "uncertainty_ppm": 230.998,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.28195096,
+      "wavelength_low_um": 5.27090805,
+      "wavelength_high_um": 5.29299388,
+      "transit_depth_ppm": 21422.635,
+      "uncertainty_ppm": 229.896,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.3039854,
+      "wavelength_low_um": 5.29299388,
+      "wavelength_high_um": 5.31497692,
+      "transit_depth_ppm": 21089.966,
+      "uncertainty_ppm": 242.632,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.32591781,
+      "wavelength_low_um": 5.31497692,
+      "wavelength_high_um": 5.3368587,
+      "transit_depth_ppm": 21245.101,
+      "uncertainty_ppm": 248.615,
+      "instrument": "NIRSpec_PRISM"
+    },
+    {
+      "wavelength_um": 5.34412477,
+      "wavelength_low_um": 5.3368587,
+      "wavelength_high_um": 5.35139083,
+      "transit_depth_ppm": 21501.369,
+      "uncertainty_ppm": 345.577,
+      "instrument": "NIRSpec_PRISM"
+    }
+  ]
+}
