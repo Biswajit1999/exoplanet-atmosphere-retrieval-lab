@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, cite this repository and the Carter et al. benchmark dataset."
+title: "WASP-39 b Spectral Inference Laboratory"
+type: software
+version: 2.0.0
+date-released: 2026-10-03
+authors:
+  - family-names: Jana
+    given-names: Biswajit
+    orcid: "https://orcid.org/0009-0002-2411-1891"
+repository-code: "https://github.com/Biswajit1999/exoplanet-atmosphere-retrieval-lab"
+url: "https://biswajit1999.github.io/exoplanet-atmosphere-retrieval-lab/"
+license: MIT
+preferred-citation:
+  type: article
+  title: "A benchmark JWST near-infrared spectrum for the exoplanet WASP-39 b"
+  authors:
+    - family-names: Carter
+      given-names: Aarynn L.
+    - family-names: May
+      given-names: Erin M.
+  journal: Nature Astronomy
+  volume: 8
+  start: 1008
+  end: 1019
+  year: 2024
+  doi: 10.1038/s41550-024-02292-x

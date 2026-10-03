@@ -1,236 +1,173 @@
-# Exoplanet Atmosphere Retrieval Lab
+# WASP-39 b Spectral Inference Laboratory
 
-Transmission spectra, molecular bands and degeneracy diagnostics.
+[![Dataset DOI](https://img.shields.io/badge/data-10.5281%2Fzenodo.10161743-0b665f)](https://doi.org/10.5281/zenodo.10161743)
+[![Publication DOI](https://img.shields.io/badge/paper-10.1038%2Fs41550--024--02292--x-a65c24)](https://doi.org/10.1038/s41550-024-02292-x)
 
-Created and maintained by Biswajit Jana.
+A browser-based, reduced-order likelihood analysis of the uniformly reduced
+JWST transmission spectrum of WASP-39 b. The laboratory is designed to show
+both what a simple molecular-feature model extracts and where that model
+fails. It is not a line-by-line radiative-transfer retrieval and does not
+convert feature amplitude into molecular abundance.
 
-This is a zero-build, browser-only laboratory for exploring how an exoplanet's
-transmission spectrum responds to atmospheric parameters (temperature,
-metallicity, cloud-top pressure, base transit depth). It overlays a small,
-citable bundle of reference transmission-spectrum anchors on top of an
-interactive forward model so you can see, by eye, how model choices trade off
-against real measurement uncertainty and degeneracy.
+## Scientific question
 
-**Scope note:** this repository implements a parametric *forward model* (you
-choose parameters, it draws the spectrum) plus a toy 2-D response surface. It
-does **not** perform a statistical atmospheric retrieval (no MCMC/nested
-sampling, no likelihood evaluated against data, no posterior). The heatmap
-panel is a fast qualitative proxy for how sensitive the spectrum is to two
-parameters at once, not a fitted probability surface. See "How it works"
-below for exactly what the code computes.
+How much H2O-like and CO2-like spectral contrast is preferred by the public
+0.52–5.35 micrometre benchmark spectrum after allowing every detector/order
+product its own transit-depth offset, and how sensitive is that result to a
+spectral slope, template width, and unmodelled error floor?
 
-## Scientific Background
+The default analysis answers this conditional question with all six products,
+published marginal uncertainties, no extra error floor, and a log-wavelength
+slope. It also reports a goodness-of-fit check before any interpretation.
 
-### Transmission spectroscopy during transit
+## Data
 
-When a planet transits its host star, starlight grazes the planet's
-terminator and passes through its atmosphere before reaching the observer.
-Atoms and molecules in the atmosphere absorb specific wavelengths, so the
-apparent planet radius — and therefore the transit depth — varies with
-wavelength:
+The source is Carter, May et al. (2024), *A benchmark JWST near-infrared
+spectrum for the exoplanet WASP-39 b*, Nature Astronomy 8, 1008–1019. The
+complete upstream Zenodo archive is 1.7 GB and has MD5
+`f617fa28908aa35d334062f1c06bc24d`. This repository pins the six small source
+tables used by the browser:
 
+| Product | Selection | Included bins |
+|---|---:|---:|
+| NIRISS/SOSS order 1 | R=100 | 108 |
+| NIRISS/SOSS order 2 | R=100 | 27 |
+| NIRCam/F322W2 | R=100 | 49 |
+| NIRSpec/G395H NRS1 | R=100 | 30 |
+| NIRSpec/G395H NRS2 | R=100 | 29 |
+| NIRSpec/PRISM | native `bins_scale1` | 112 |
+
+Thirty-five PRISM bins with a non-zero upstream `satflag` are excluded. Every
+source CSV is checked against the SHA-256 digest embedded in
+`data/wasp39b_benchmark.json`.
+
+The source tables report radius ratio. The committed browser dataset applies
+
+```text
+depth_ppm = (Rp/Rs)^2 * 10^6
+sigma_depth_ppm = 2 * (Rp/Rs) * mean(sigma_low, sigma_high) * 10^6
 ```
-depth(lambda) = (R_p(lambda) / R_star)^2
+
+The uncertainty conversion is a first-order propagation. It symmetrizes the
+reported asymmetric radius-ratio errors and does not reconstruct inter-bin
+covariance.
+
+## Declared model
+
+For spectral bin `i` from product `g`, the laboratory evaluates
+
+```text
+y_i = b_g
+    + s log(lambda_i / 2.2 micrometre)
+    + A_H2O T_H2O(lambda_i)
+    + A_CO2 T_CO2(lambda_i)
+    + a_SO2 T_SO2(lambda_i)
+    + epsilon_i
+
+epsilon_i ~ Normal(0, sigma_i^2 + f^2)
 ```
 
-At wavelengths coincident with a strong molecular absorption feature, the
-planet appears larger (light is blocked higher in the atmosphere), so the
-transit is deeper. This differential signal, typically tens to hundreds of
-parts per million for a hot Jupiter around a Sun-like star, is the
-observable that transmission spectroscopy extracts (Seager & Sasselov 2000).
+`b_g` is a separately profiled offset for each detector/order product. `s` is
+an optional continuum slope. `a_SO2` is a signed nuisance/decorrelation
+coefficient, not an SO2 abundance. `f` is the user-controlled additional
+error floor. The H2O template is a normalized sum of Gaussian bands near
+1.15, 1.40, 1.90, and 2.70 micrometres; CO2 and SO2 use simple features near
+4.30 and 4.05 micrometres. A width-scale control moves all template widths
+together for sensitivity analysis.
 
-### Atmospheric scale height
+At every point on a 51 x 51 `(A_H2O, A_CO2)` grid, the code solves the weighted
+normal equations for all nuisance coefficients. The grid uses independent
+flat priors on each non-negative amplitude from 0 to 1400 ppm. It reports
+normalized likelihood weights and equal-tail 16th, 50th, and 84th percentiles.
+The displayed 2-D contours are likelihood-ratio guides, not calibrated
+coverage regions under model misspecification.
 
-The size of the wavelength-dependent signal scales with the atmospheric
-pressure scale height, the characteristic altitude over which pressure falls
-by 1/e:
+## Default result and its interpretation
 
-```
-H = k_B * T / (mu * g)
-```
+The committed 355-bin configuration gives approximately:
 
-where `k_B` is Boltzmann's constant, `T` the atmospheric temperature, `mu`
-the mean molecular mass, and `g` the planet's surface gravity. Hotter,
-lower-gravity, lower-molecular-weight atmospheres (hot, low-mass, hydrogen-
-dominated planets) produce the largest spectral features and are the most
-favorable retrieval targets — a large part of why hot Jupiters and sub-
-Neptunes dominate the current atmospheric-characterization sample.
+- H2O-template amplitude: 672 ppm, conditional grid interval [644, 700] ppm;
+- CO2-template amplitude: 980 ppm, conditional grid interval [952, 1008] ppm;
+- residual RMS: 250.4 ppm;
+- chi-squared / dof: 2935.8 / 345, or reduced chi-squared 8.51.
 
-### Molecular absorption features
+The last line dominates the interpretation. Under the published marginal
+errors, this template family is not an adequate generative model of the
+benchmark spectrum. Consequently, its narrow conditional intervals and its
+large BIC contrast against a nuisance model with H2O and CO2 amplitudes fixed
+to zero must **not** be reported as abundance constraints or molecular
+detection significances. The result is an
+auditable demonstration of feature contrast and model inadequacy.
 
-Different molecules imprint absorption bands at characteristic
-near/mid-infrared wavelengths:
+This is also why the interface exposes an error-floor stress test. An added
+error floor can make reduced chi-squared approach unity, but doing so is a
+sensitivity experiment, not evidence that the extra variance is physically
+correct. A research-grade abundance retrieval would require wavelength-
+dependent opacity, radiative transfer, chemically meaningful priors,
+instrument systematics, and preferably a released covariance model.
 
-- **H2O** — bands near 1.15, 1.4, 1.9 and 2.7 micron; the workhorse feature
-  for hot-Jupiter transmission spectroscopy.
-- **CH4** — bands near 1.65, 2.3 and 3.3 micron, prominent in cooler,
-  higher-C/O atmospheres.
-- **CO2** — a strong band near 4.3 micron, a key JWST/NIRSpec diagnostic
-  (e.g. the WASP-39b CO2 detection).
-- **Na / K** — narrow optical resonance lines near 0.589 and 0.77 micron
-  that probe the upper atmosphere and cloud/haze coverage.
+## Reproduce
 
-Clouds and hazes mute all of these features by raising the effective
-opaque surface (the "cloud-top pressure"), flattening the spectrum — a
-classic source of degeneracy between "clear atmosphere, low abundance" and
-"cloudy atmosphere, high abundance" solutions.
-
-### Retrieval: forward modeling vs. inversion
-
-A **forward model** takes atmospheric parameters (temperature, composition,
-cloud deck, planet/star radii) and predicts a spectrum. An **atmospheric
-retrieval** runs the inverse problem: given an observed spectrum with error
-bars, it searches parameter space (typically via MCMC or nested sampling,
-e.g. `PyMultiNest`, `MultiNest`, `emcee`) for the posterior distribution of
-atmospheric parameters that best reproduce the data, explicitly quantifying
-degeneracies such as the temperature-metallicity-cloud trade-off
-(Madhusudhan 2018 review). This repository implements only the forward-model
-half of that pipeline, interactively, in the browser — it is a teaching and
-intuition-building tool for how the forward model behaves, not a retrieval
-engine.
-
-### Relevance to JWST
-
-JWST's NIRSpec (0.6-5.3 micron) and NIRISS SOSS (0.6-2.8 micron) modes have
-delivered the highest-precision transmission spectra to date, resolving H2O,
-CO2, SO2 and other features in planets such as WASP-39b and WASP-96b at
-precisions well below 100 ppm — a regime where the reference anchors and
-sliders in this lab are directly comparable in scale to real data.
-
-## How It Works
-
-The app is a single-page, dependency-free static site:
-
-1. `index.html` renders the mission-control layout; `styles.css` styles it.
-2. `app.js` builds the parameter sliders from the `LAB.controls` definition
-   (temperature, metallicity scale, cloud-top pressure proxy, base radius
-   depth), loads `data/reference.json` (the fixed reference anchors, drawn
-   as amber points), and on every slider change posts the current parameters
-   to `physicsWorker.js`.
-3. `physicsWorker.js` runs off the UI thread. Its `atmosphere(p)` function
-   computes:
-   - a scale-height proxy `scale = 90 * sqrt(T / 1200) * log10(1 + metallicity)`,
-   - a cloud transmission factor `cloud = 1 - cloudTop`,
-   - a transit-depth spectrum built from four Gaussian absorption bands
-     (approximating H2O at 0.95/1.4 micron, CO at 2.3 micron, CO2 at
-     4.3 micron) added on top of the base radius depth, each scaled by
-     `cloud * scale`,
-   - a small metrics block (`water_band_ppm`, `scale_height_proxy`,
-     `cloud_transmission`),
-   - and a 72x72 normalized response heatmap (labeled "retrieval
-     likelihood" in the UI) that is a smooth analytic function of the two
-     heatmap axes, used only as a qualitative sensitivity visualization —
-     it is not derived from a fit to the reference data.
-4. `app.js` receives the worker's result, draws the model spectrum and the
-   reference anchors on a shared canvas (`drawSeries`), renders the heatmap
-   (`drawHeatmap`), and updates the telemetry panel.
-5. `research-overlay.js` adds a small non-blocking status panel confirming
-   the reference-anchor and equation count; it has no effect on the model.
-6. `scripts/validate.js` (via `npm run check`) is a dependency-free CI-style
-   check: it verifies required files exist, the reference JSON has at least
-   four finite anchor points, the README cites every reference required by
-   `data/reference.json`, and that no unfinished scaffold tokens remain.
-   `scripts/validate_repository.mjs` runs a similar check against
-   `data/research-reference.json` for the separate research-quality layer
-   described in `RESEARCH_QUALITY.md`.
-
-## Usage
+The website has no runtime dependencies. Python is required only to rebuild
+the compact JSON from the pinned CSV products.
 
 ```bash
+python scripts/build_dataset.py
+npm run check
 python -m http.server 8080
 ```
 
-Open `http://localhost:8080` and drag the sliders. Each change triggers a
-new worker run (see the `run NNN` counter); the cyan curve is the model
-spectrum, the amber points are the fixed reference anchors, and the right
-panel shows the qualitative two-parameter response field.
+Open `http://localhost:8080`. The numerical grid runs in a Web Worker so the
+controls and accessibility tree remain responsive.
 
-## Validate
+`npm run check` performs syntax checks, validates all six product hashes and
+355 finite bins, checks the public inference boundaries, and runs four
+numerical tests. The tests recover injected amplitudes and offsets, verify
+error-floor behaviour, and ensure undersized data selections fail closed.
 
-```bash
-npm run check              # repository/reference/citation checks
-npm run validate:research  # research-quality layer checks
+## Repository map
+
+```text
+data/source_products/       six published spectrum tables
+data/wasp39b_benchmark.json browser-ready data plus provenance
+scripts/build_dataset.py    deterministic radius-ratio conversion
+scripts/validate.js         integrity and public-boundary checks
+inference.js                pure likelihood and profiling implementation
+physicsWorker.js            worker boundary
+app.js                      accessible charts and interaction
+tests/inference.test.js     numerical regression tests
 ```
 
-## Math Appendix
+## Inference boundaries
 
-Transit depth as a function of wavelength (idealized):
-
-```
-depth(lambda) = (R_p(lambda) / R_star)^2
-```
-
-Pressure scale height:
-
-```
-H = k_B * T / (mu * g)
-```
-
-Model spectrum actually computed by `physicsWorker.js` (`atmosphere(p)`):
-
-```
-scale  = 90 * sqrt(T / 1200) * log10(1 + Z)
-cloud  = 1 - cloudTop
-band(c, w, a, lambda) = a * exp(-0.5 * ((lambda - c) / w)^2)
-
-depth(lambda) = R0
-              + cloud * scale * [        band(1.40, 0.12, 1, lambda)
-                                  + 0.75 * band(2.30, 0.18, 1, lambda)
-                                  + 1.10 * band(4.30, 0.25, 1, lambda)
-                                  + 0.35 * band(0.95, 0.08, 1, lambda) ]
-```
-
-where `T` is temperature [K], `Z` is the metallicity slider (dimensionless
-scale factor, not [Fe/H] dex), `cloudTop` in [0, 1] is the cloud-top
-pressure proxy, and `R0` is the base radius depth in ppm. This is a
-deliberately simplified, illustrative band model — it captures the correct
-qualitative trends (hotter/higher-metallicity atmospheres show taller
-bands, higher clouds mute them) but is not a line-by-line or correlated-k
-radiative-transfer calculation.
-
-## Reference Data
-
-`data/reference.json` anchors its **baseline transit depth to real WASP-39 b system
-parameters** -- planet radius and stellar radius queried live from the NASA Exoplanet
-Archive TAP service (`pl_rade = 14.336 Earth radii`, `st_rad = 0.939 solar radii`) -- giving
-a genuinely computed baseline of `(Rp/Rs)^2 = 19,592 ppm`, not an arbitrary round number.
-WASP-39 b is the real JWST target with the first confident exoplanet CO2 detection (JWST
-Transiting Exoplanet Community ERS Team, 2023); the molecular-band excess amplitudes layered
-on top of that real baseline remain illustrative (not digitized from the published spectrum)
-and the reference metadata says so explicitly. The default `radius` slider value matches this
-real baseline so the model curve and reference anchors agree at default settings.
-`data/research-reference.json` holds a separate, smaller benchmark set used
-only by the repository's research-quality validation script.
-
-## What Feature Amplitude Tells Us: Clear vs. Cloudy Atmospheres
-
-The `ATMOSPHERE CHARACTER` readout classifies the current spectrum by how large its molecular
-features are relative to a cloud-free prediction, mirroring the real diagnostic used to sort
-observed hot-Jupiter transmission spectra into clear, hazy and flat categories (Sing et al.,
-2016, *Nature*, 529, pp.59-62 -- an HST comparative survey spanning genuinely clear planets
-like WASP-39b down to essentially featureless ones):
-
-- **Clear, high-altitude-cloud-free** (`cloud_transmission > 0.8`, strong features) -- comparable
-  to WASP-39b's real JWST spectrum, clear enough to reveal individual molecular species.
-- **Partially cloudy** (`cloud_transmission > 0.4`) -- muted but still detectable features,
-  comparable to HD 209458b.
-- **High-altitude cloud/haze deck** (otherwise) -- an increasingly flat, featureless spectrum,
-  comparable to GJ 1214b (Kreidberg et al., 2014, *Nature*, 505, pp.69-72) or HD 189733b's haze
-  layer -- real cases where clouds/haze suppressed the expected molecular features almost
-  entirely, which was itself an important discovery about that planet's atmosphere.
-
-Drag `cloudTopPressure` toward 0 (high, optically thick clouds) and watch the classification
-move from "clear" toward "flat/featureless" -- the same qualitative behaviour that makes cloud
-decks the dominant systematic uncertainty in real transmission-spectroscopy retrievals.
+- The selected CSV products do not supply a joint inter-bin covariance matrix;
+  the likelihood is diagonal with an optional scalar error floor.
+- Overlapping instruments are not independent demonstrations of the same
+  molecule, and per-product offsets remove absolute-radius information.
+- Gaussian feature templates are not opacity cross-sections and their
+  amplitudes are not volume-mixing ratios, metallicity, or C/O.
+- The grid boundaries and flat priors affect conditional intervals.
+- The browser fit is not independent validation of the Carter et al. reduction;
+  it reuses their released spectrum.
+- Published molecular claims should be taken from full atmospheric analyses,
+  not from this reduced-order model.
 
 ## References
 
-- Seager, S. and Sasselov, D.D., 2000. Theoretical transmission spectra during extrasolar giant planet transits. The Astrophysical Journal, 537(2), pp.916-921.
-- Deming, D. et al., 2013. Infrared transmission spectroscopy of the exoplanets HD 209458b and XO-1b using the Wide Field Camera-3 on the Hubble Space Telescope. The Astrophysical Journal, 774(2), p.95.
-- Madhusudhan, N., 2019. Exoplanetary atmospheres: key insights, challenges, and prospects. Annual Review of Astronomy and Astrophysics, 57, pp.617-663.
-- JWST Transiting Exoplanet Community Early Release Science Team, 2023. Identification of carbon dioxide in an exoplanet atmosphere. Nature, 614(7949), pp.649-652.
-- Wilson, G. et al., 2017. Good enough practices in scientific computing. PLOS Computational Biology, 13(6), p.e1005510.
+- Carter, A. L., May, E. M. et al. (2024). A benchmark JWST near-infrared
+  spectrum for the exoplanet WASP-39 b. *Nature Astronomy*, 8, 1008–1019.
+  <https://doi.org/10.1038/s41550-024-02292-x>
+- JWST Transiting Exoplanet Community Early Release Science Team (2023).
+  Identification of carbon dioxide in an exoplanet atmosphere. *Nature*, 614,
+  649–652. <https://doi.org/10.1038/s41586-022-05269-w>
+- Alderson, L. et al. (2023). Early Release Science of the exoplanet WASP-39b
+  with JWST NIRSpec G395H. *Nature*, 614, 664–669.
+  <https://doi.org/10.1038/s41586-022-05591-3>
+- Feinstein, A. D. et al. (2023). Early Release Science of the exoplanet
+  WASP-39b with JWST NIRISS. *Nature*, 614, 670–675.
+  <https://doi.org/10.1038/s41586-022-05674-1>
 
-## Research Quality Upgrade
+## Licence
 
-See [RESEARCH_QUALITY.md](RESEARCH_QUALITY.md) for the validation layer, reference anchors, equations and research boundaries added to this repository.
+Code is MIT licensed. The published data retain their upstream attribution
+and licensing; cite the dataset and paper when reusing the spectrum.
