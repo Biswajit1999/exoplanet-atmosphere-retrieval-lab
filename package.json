@@ -1,11 +1,11 @@
 {
   "name": "exoplanet-atmosphere-retrieval-lab",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Transmission spectra, molecular bands and degeneracy diagnostics.",
+  "description": "Reduced-order likelihood inference on the public JWST WASP-39 b benchmark spectrum.",
   "scripts": {
-    "check": "node --check app.js && node --check physicsWorker.js && node --check scripts/validate.js && node scripts/validate.js",
-    "validate:research": "node scripts/validate_repository.mjs"
+    "test": "node --test",
+    "check": "node --check app.js && node --check inference.js && node --check physicsWorker.js && node --check scripts/validate.js && node scripts/validate.js && node --test"
   },
   "keywords": [
     "astrophysics",
