@@ -3,69 +3,115 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Transmission spectra, molecular bands and degeneracy diagnostics.">
-  <title>Exoplanet Atmosphere Retrieval Lab</title>
+  <meta name="description" content="Likelihood-based, reduced-order inference on the public four-instrument JWST transmission spectrum of WASP-39 b.">
+  <title>WASP-39 b Spectral Inference Laboratory</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">Research Console</p>
-        <h1>Exoplanet Atmosphere Retrieval Lab</h1>
+  <a class="skip-link" href="#main">Skip to analysis</a>
+  <header class="masthead">
+    <div class="identity">
+      <p class="kicker">JWST ERS 1366 · reproducible spectral inference</p>
+      <h1>WASP‑39 b <span>Spectral Inference Laboratory</span></h1>
+      <p class="dek">A likelihood-conditioned audit of molecular feature templates across the public 0.52–5.35&nbsp;µm benchmark spectrum.</p>
+    </div>
+    <div class="run-state" role="status" aria-live="polite">
+      <span id="workerStatus">Loading 355 spectral bins</span>
+      <strong id="runId">analysis —</strong>
+    </div>
+  </header>
+
+  <main id="main" class="workspace">
+    <aside class="controls-card" aria-labelledby="controls-title">
+      <div class="section-heading">
+        <p>Assumption controls</p>
+        <h2 id="controls-title">Stress-test the likelihood</h2>
       </div>
-      <div class="status-card">
-        <span id="workerStatus">Worker booting</span>
-        <strong id="frameRate">-- fps</strong>
+
+      <label for="instrument">Spectrum subset</label>
+      <select id="instrument">
+        <option value="all">All six detector/order products</option>
+      </select>
+      <p class="field-note">Each selected product receives its own profiled depth offset.</p>
+
+      <label for="errorFloor">Additional error floor <output id="errorFloorValue">0 ppm</output></label>
+      <input id="errorFloor" type="range" min="0" max="300" step="10" value="0">
+      <p class="field-note">Added in quadrature to every published marginal uncertainty.</p>
+
+      <label for="widthScale">Template width scale <output id="widthScaleValue">1.00×</output></label>
+      <input id="widthScale" type="range" min="0.70" max="1.40" step="0.05" value="1">
+      <p class="field-note">A sensitivity test, not a temperature or abundance parameter.</p>
+
+      <label class="check-row" for="includeSlope">
+        <input id="includeSlope" type="checkbox" checked>
+        <span>Profile a log-wavelength slope</span>
+      </label>
+
+      <button id="reset" type="button">Restore declared analysis</button>
+
+      <div class="method-card">
+        <p class="method-label">Estimand</p>
+        <p>Non-negative H₂O and CO₂ template amplitudes in ppm, conditional on Gaussian template shapes. SO₂, detector offsets, and the optional slope are nuisance terms.</p>
       </div>
-    </header>
+    </aside>
 
-    <section class="grid">
-      <aside class="panel controls">
-        <div class="panel-title">
-          <span>Controls</span>
-          <b id="referenceLabel">Reference loading</b>
+    <section class="analysis-grid">
+      <article class="figure-card spectrum-card">
+        <div class="figure-heading">
+          <div><p>Observed space</p><h2>Transmission spectrum and profiled model</h2></div>
+          <div id="legend" class="legend" aria-label="Instrument legend"></div>
         </div>
-        <div id="controls"></div>
-        <button id="reset">Reset model</button>
-      </aside>
+        <canvas id="spectrumCanvas" role="img" aria-describedby="spectrumSummary"></canvas>
+        <p id="spectrumSummary" class="sr-summary">Spectrum is loading.</p>
+      </article>
 
-      <section class="panel plot-panel">
-        <div class="panel-title">
-          <span>Reference Data + Simulation</span>
-          <b id="seriesLabel">Wavelength [micron]</b>
+      <article class="figure-card posterior-card">
+        <div class="figure-heading">
+          <div><p>Parameter space</p><h2>Conditional profile likelihood</h2></div>
+          <span class="figure-tag">flat non-negative priors</span>
         </div>
-        <canvas id="seriesCanvas" width="1200" height="620"></canvas>
-      </section>
+        <canvas id="posteriorCanvas" role="img" aria-describedby="posteriorSummary"></canvas>
+        <p id="posteriorSummary" class="sr-summary">Posterior surface is loading.</p>
+      </article>
 
-      <section class="panel heat-panel">
-        <div class="panel-title">
-          <span>Parameter Response Field</span>
-          <b>worker heatmap</b>
-        </div>
-        <canvas id="heatCanvas" width="620" height="620"></canvas>
-      </section>
-
-      <section class="panel telemetry">
-        <div class="panel-title">
-          <span>Telemetry</span>
-          <b id="runId">run --</b>
+      <article class="figure-card diagnostics-card">
+        <div class="figure-heading">
+          <div><p>Fit diagnostics</p><h2>What this model can—and cannot—support</h2></div>
+          <span id="fitFlag" class="fit-flag">evaluating</span>
         </div>
         <div id="metrics" class="metrics"></div>
-        <pre id="notes"></pre>
-      </section>
+        <div class="interpretation">
+          <p id="interpretationText">Running the declared likelihood…</p>
+          <p class="boundary"><strong>Inference boundary.</strong> These amplitudes are not molecular abundances or detection significances. The templates are phenomenological, the likelihood uses marginal diagonal errors, and a poor reduced χ² signals model inadequacy.</p>
+        </div>
+      </article>
+
+      <article class="figure-card provenance-card">
+        <div class="figure-heading">
+          <div><p>Audit trail</p><h2>Data coverage and provenance</h2></div>
+          <a href="https://doi.org/10.5281/zenodo.10161743" target="_blank" rel="noopener">Zenodo DOI</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>Included products after excluding flagged saturated PRISM bins</caption>
+            <thead><tr><th scope="col">Product</th><th scope="col">Bins</th><th scope="col">Range (µm)</th><th scope="col">Median σ (ppm)</th></tr></thead>
+            <tbody id="coverageRows"></tbody>
+          </table>
+        </div>
+        <p class="provenance-note" id="provenanceNote"></p>
+      </article>
     </section>
   </main>
+
   <footer class="site-footer">
-    <span>&copy; 2026 Biswajit Jana</span>
-    <nav>
-      <a href="https://biswajit1999.github.io/Biswajit_Jana.github.io/" target="_blank" rel="noopener">Portfolio</a>
-      <a href="https://github.com/Biswajit1999" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/biswajit-jana-27011a151/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://orcid.org/0009-0002-2411-1891" target="_blank" rel="noopener">ORCID</a>
+    <p>Biswajit Jana · scientific software portfolio</p>
+    <nav aria-label="External links">
+      <a href="https://github.com/Biswajit1999/exoplanet-atmosphere-retrieval-lab">Source</a>
+      <a href="https://orcid.org/0009-0002-2411-1891">ORCID</a>
+      <a href="https://doi.org/10.1038/s41550-024-02292-x">Publication</a>
     </nav>
   </footer>
+
   <script src="app.js"></script>
-  <script src="research-overlay.js"></script>
 </body>
 </html>

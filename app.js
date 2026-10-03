@@ -1,17 +1,241 @@
-const LAB={"id":"atmosphere","title":"Exoplanet Atmosphere Retrieval Lab","xLabel":"Wavelength [micron]","yLabel":"Transit depth [ppm]","controls":[["temperature","Temperature [K]",1200,500,2400,10],["metallicity","Metallicity scale",1,0.1,10,0.1],["cloudTop","Cloud-top pressure proxy",0.35,0,1,0.01],["radius","Base radius depth [ppm]",19592,8000,26000,50]]};
-const state={reference:null,params:Object.fromEntries(LAB.controls.map(c=>[c[0],c[2]])),result:null,worker:null,run:0,lastFrame:performance.now(),frames:0};
-const $=id=>document.getElementById(id);
-function fmt(v,d=3){return Number.isFinite(Number(v))?Number(v).toLocaleString('en-US',{maximumFractionDigits:d}):'--'}
-function buildControls(){const root=$('controls');root.innerHTML='';for(const c of LAB.controls){const [key,label,value,min,max,step]=c;const wrap=document.createElement('label');wrap.innerHTML=`${label} <output id="out-${key}">${value}</output><input id="ctrl-${key}" type="range" min="${min}" max="${max}" step="${step}" value="${value}">`;root.appendChild(wrap);$('ctrl-'+key).addEventListener('input',e=>{state.params[key]=Number(e.target.value);$('out-'+key).textContent=e.target.value;runModel()})}}
-async function loadReference(){const response=await fetch('data/reference.json',{cache:'no-cache'});if(!response.ok)throw Error('reference data HTTP '+response.status);state.reference=await response.json();$('referenceLabel').textContent=state.reference.dataset;$('notes').textContent=state.reference.source+'\n\n'+state.reference.citation}
-function getWorker(){if(state.worker)return state.worker;state.worker=new Worker('physicsWorker.js');state.worker.onmessage=e=>{state.result=e.data;draw();renderMetrics();$('workerStatus').textContent='Worker ready'};state.worker.onerror=e=>{$('workerStatus').textContent='Worker error: '+e.message};return state.worker}
-function runModel(){const worker=getWorker();state.run+=1;$('runId').textContent='run '+String(state.run).padStart(3,'0');worker.postMessage({lab:LAB.id,params:state.params,reference:state.reference})}
-function bounds(series,points){const xs=[],ys=[];for(const s of series||[]){xs.push(...s.x);ys.push(...s.y)}for(const p of points||[]){xs.push(p.x);ys.push(p.y)}return{minX:Math.min(...xs),maxX:Math.max(...xs),minY:Math.min(...ys),maxY:Math.max(...ys)}}
-function drawAxes(ctx,w,h,b){ctx.strokeStyle='rgba(148,163,184,.35)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(70,28);ctx.lineTo(70,h-58);ctx.lineTo(w-24,h-58);ctx.stroke();ctx.fillStyle='#8b93a3';ctx.font='12px Consolas, monospace';ctx.fillText(LAB.yLabel,18,22);ctx.fillText(LAB.xLabel,w-220,h-20);for(let i=0;i<=5;i++){const x=70+(w-100)*i/5,y=h-58-(h-90)*i/5;ctx.fillText(fmt(b.minX+(b.maxX-b.minX)*i/5,2),x-18,h-38);ctx.fillText(fmt(b.minY+(b.maxY-b.minY)*i/5,2),18,y+4);ctx.strokeStyle='rgba(148,163,184,.10)';ctx.beginPath();ctx.moveTo(x,28);ctx.lineTo(x,h-58);ctx.moveTo(70,y);ctx.lineTo(w-24,y);ctx.stroke()}}
-function drawSeries(){const canvas=$('seriesCanvas'),ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);const series=state.result?.series||[],points=state.reference?.points||[],b=bounds(series,points);const padY=(b.maxY-b.minY||1)*.12;b.minY-=padY;b.maxY+=padY;drawAxes(ctx,w,h,b);const sx=x=>70+(x-b.minX)/(b.maxX-b.minX||1)*(w-100),sy=y=>h-58-(y-b.minY)/(b.maxY-b.minY||1)*(h-90);for(const s of series){ctx.strokeStyle=s.color||'#6fbf8f';ctx.lineWidth=2;ctx.beginPath();s.x.forEach((x,i)=>{const px=sx(x),py=sy(s.y[i]);if(i)ctx.lineTo(px,py);else ctx.moveTo(px,py)});ctx.stroke();ctx.fillStyle=s.color||'#6fbf8f';ctx.fillText(s.name,90,48+18*series.indexOf(s))}for(const p of points){const x=sx(p.x),y=sy(p.y);ctx.fillStyle='#ffd166';ctx.strokeStyle='#14171d';ctx.lineWidth=2;ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#eef1f6';ctx.fillText(p.label||'reference',x+8,y-8)}}
-function drawHeatmap(){const canvas=$('heatCanvas'),ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;const m=state.result?.heatmap;if(!m)return;const img=ctx.createImageData(w,h);for(let y=0;y<h;y++){for(let x=0;x<w;x++){const ix=Math.floor(x/w*m.n),iy=Math.floor(y/h*m.n),v=m.values[iy*m.n+ix];const o=(y*w+x)*4;img.data[o]=Math.min(255,20+240*v);img.data[o+1]=Math.min(255,70+190*Math.sqrt(v));img.data[o+2]=Math.min(255,120+100*(1-v));img.data[o+3]=255}}ctx.putImageData(img,0,0);ctx.fillStyle='rgba(11,15,25,.78)';ctx.fillRect(12,12,260,54);ctx.fillStyle='#eef1f6';ctx.font='13px Consolas, monospace';ctx.fillText(m.label,24,44)}
-function draw(){drawSeries();drawHeatmap()}
-function renderMetrics(){const root=$('metrics');root.innerHTML='';for(const [k,v] of Object.entries(state.result?.metrics||{})){const d=document.createElement('div');d.className='metric';d.innerHTML=`<span>${k}</span><strong>${fmt(v,4)}</strong>`;root.appendChild(d)}const character=state.result?.atmosphereCharacter;if(character&&state.reference){$('notes').textContent=`ATMOSPHERE CHARACTER: ${character}\n\n`+state.reference.source+'\n\n'+state.reference.citation}}
-function tick(now){state.frames++;if(now-state.lastFrame>1000){$('frameRate').textContent=Math.round(state.frames*1000/(now-state.lastFrame))+' fps';state.frames=0;state.lastFrame=now}requestAnimationFrame(tick)}
-$('reset').addEventListener('click',()=>{for(const c of LAB.controls){state.params[c[0]]=c[2];$('ctrl-'+c[0]).value=c[2];$('out-'+c[0]).textContent=c[2]}runModel()});
-buildControls();loadReference().then(runModel).catch(err=>{$('workerStatus').textContent='Reference error';$('notes').textContent=err.message});requestAnimationFrame(tick);
+"use strict";
+
+const COLORS = ["#0b665f", "#a65c24", "#46658a", "#7a536f", "#55733d", "#8d3f32"];
+const state = { dataset: null, result: null, worker: null, requestId: 0, timer: null };
+const $ = (id) => document.getElementById(id);
+const format = (value, digits = 0) => Number(value).toLocaleString("en-GB", { maximumFractionDigits: digits });
+
+function instrumentColours(names) {
+  return Object.fromEntries([...names].sort().map((name, index) => [name, COLORS[index % COLORS.length]]));
+}
+
+function prepareCanvas(canvas) {
+  const rect = canvas.getBoundingClientRect();
+  const ratio = Math.min(window.devicePixelRatio || 1, 2);
+  const width = Math.max(320, Math.round(rect.width));
+  const height = Math.max(300, Math.round(rect.height));
+  if (canvas.width !== width * ratio || canvas.height !== height * ratio) {
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
+  }
+  const context = canvas.getContext("2d");
+  context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  context.clearRect(0, 0, width, height);
+  return { context, width, height };
+}
+
+function drawAxes(context, width, height, bounds, labels) {
+  const margin = { left: 82, right: 22, top: 24, bottom: 56 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  const x = (value) => margin.left + (value - bounds.xMin) / (bounds.xMax - bounds.xMin) * plotWidth;
+  const y = (value) => margin.top + (bounds.yMax - value) / (bounds.yMax - bounds.yMin) * plotHeight;
+  context.font = "11px IBM Plex Mono, Consolas, monospace";
+  context.fillStyle = "#526164";
+  context.strokeStyle = "#dfe3df";
+  context.lineWidth = 1;
+  for (let i = 0; i <= 5; i += 1) {
+    const xValue = bounds.xMin + (bounds.xMax - bounds.xMin) * i / 5;
+    const yValue = bounds.yMin + (bounds.yMax - bounds.yMin) * i / 5;
+    const px = x(xValue);
+    const py = y(yValue);
+    context.beginPath(); context.moveTo(px, margin.top); context.lineTo(px, height - margin.bottom); context.stroke();
+    context.beginPath(); context.moveTo(margin.left, py); context.lineTo(width - margin.right, py); context.stroke();
+    context.textAlign = "center";
+    context.fillText(format(xValue, 1), px, height - 33);
+    context.textAlign = "right";
+    context.fillText(format(yValue, 0), margin.left - 10, py + 4);
+  }
+  context.strokeStyle = "#71807d";
+  context.beginPath();
+  context.moveTo(margin.left, margin.top); context.lineTo(margin.left, height - margin.bottom); context.lineTo(width - margin.right, height - margin.bottom); context.stroke();
+  context.fillStyle = "#182426";
+  context.font = "600 12px Inter, Segoe UI, sans-serif";
+  context.textAlign = "center";
+  context.fillText(labels.x, margin.left + plotWidth / 2, height - 10);
+  context.save(); context.translate(16, margin.top + plotHeight / 2); context.rotate(-Math.PI / 2); context.fillText(labels.y, 0, 0); context.restore();
+  context.textAlign = "left";
+  return { x, y, margin };
+}
+
+function drawSpectrum() {
+  if (!state.result) return;
+  const { context, width, height } = prepareCanvas($("spectrumCanvas"));
+  const points = state.result.points;
+  const xValues = points.map((point) => point.wavelength_um);
+  const yLow = points.map((point) => point.transit_depth_ppm - point.uncertainty_ppm);
+  const yHigh = points.map((point) => point.transit_depth_ppm + point.uncertainty_ppm);
+  const padding = (Math.max(...yHigh) - Math.min(...yLow)) * 0.06;
+  const axes = drawAxes(context, width, height, {
+    xMin: Math.min(...xValues), xMax: Math.max(...xValues),
+    yMin: Math.min(...yLow) - padding, yMax: Math.max(...yHigh) + padding,
+  }, { x: "Wavelength (µm)", y: "Transit depth (ppm)" });
+  const colours = instrumentColours(state.result.instruments);
+  for (const instrument of state.result.instruments) {
+    const selected = points.filter((point) => point.instrument === instrument).sort((a, b) => a.wavelength_um - b.wavelength_um);
+    context.strokeStyle = colours[instrument];
+    context.globalAlpha = 0.78;
+    context.lineWidth = 1.5;
+    context.beginPath();
+    selected.forEach((point, index) => {
+      const px = axes.x(point.wavelength_um), py = axes.y(point.model_ppm);
+      if (index) context.lineTo(px, py); else context.moveTo(px, py);
+    });
+    context.stroke();
+    context.globalAlpha = 0.48;
+    context.lineWidth = 1;
+    for (const point of selected) {
+      const px = axes.x(point.wavelength_um), py = axes.y(point.transit_depth_ppm);
+      context.beginPath(); context.moveTo(px, axes.y(point.transit_depth_ppm - point.uncertainty_ppm)); context.lineTo(px, axes.y(point.transit_depth_ppm + point.uncertainty_ppm)); context.stroke();
+      context.globalAlpha = 0.9;
+      context.fillStyle = colours[instrument];
+      context.beginPath(); context.arc(px, py, 2.2, 0, Math.PI * 2); context.fill();
+      context.globalAlpha = 0.48;
+    }
+    context.globalAlpha = 1;
+  }
+  $("spectrumSummary").textContent = `${points.length} spectral bins across ${state.result.instruments.length} products. The profiled model has residual RMS ${format(state.result.metrics.residual_rms_ppm, 1)} ppm and reduced chi-squared ${format(state.result.metrics.reduced_chi2, 2)}.`;
+}
+
+function posteriorColour(value, maximum) {
+  const t = Math.max(0, Math.min(1, value / maximum));
+  const stops = [[247, 246, 240], [163, 203, 193], [24, 111, 105], [22, 45, 53]];
+  const scaled = t * (stops.length - 1);
+  const index = Math.min(stops.length - 2, Math.floor(scaled));
+  const fraction = scaled - index;
+  return `rgb(${stops[index].map((channel, i) => Math.round(channel + (stops[index + 1][i] - channel) * fraction)).join(",")})`;
+}
+
+function drawPosterior() {
+  if (!state.result) return;
+  const { context, width, height } = prepareCanvas($("posteriorCanvas"));
+  const posterior = state.result.posterior;
+  const maxValue = Math.max(...posterior.values);
+  const axes = drawAxes(context, width, height, { xMin: 0, xMax: posterior.axis.at(-1), yMin: 0, yMax: posterior.axis.at(-1) }, { x: "H₂O amplitude (ppm)", y: "CO₂ amplitude (ppm)" });
+  const plotWidth = width - axes.margin.left - axes.margin.right;
+  const plotHeight = height - axes.margin.top - axes.margin.bottom;
+  const cellWidth = plotWidth / posterior.n;
+  const cellHeight = plotHeight / posterior.n;
+  for (let row = 0; row < posterior.n; row += 1) {
+    for (let column = 0; column < posterior.n; column += 1) {
+      const value = posterior.values[row * posterior.n + column];
+      context.fillStyle = posteriorColour(value, maxValue);
+      context.fillRect(axes.margin.left + column * cellWidth, axes.margin.top + (posterior.n - row - 1) * cellHeight, cellWidth + .5, cellHeight + .5);
+    }
+  }
+  for (const [ratio, colour] of [[Math.exp(-1.15), "#182426"], [Math.exp(-3), "#a65c24"]]) {
+    context.strokeStyle = colour; context.lineWidth = 1.2;
+    for (let row = 1; row < posterior.n - 1; row += 1) for (let column = 1; column < posterior.n - 1; column += 1) {
+      const here = posterior.values[row * posterior.n + column] / maxValue;
+      const right = posterior.values[row * posterior.n + column + 1] / maxValue;
+      const up = posterior.values[(row + 1) * posterior.n + column] / maxValue;
+      if ((here - ratio) * (right - ratio) <= 0 || (here - ratio) * (up - ratio) <= 0) {
+        context.strokeRect(axes.margin.left + column * cellWidth, axes.margin.top + (posterior.n - row - 1) * cellHeight, cellWidth, cellHeight);
+      }
+    }
+  }
+  const [hLow, hMid, hHigh] = state.result.intervals.h2o;
+  const [cLow, cMid, cHigh] = state.result.intervals.co2;
+  $("posteriorSummary").textContent = `Conditional H2O amplitude median ${format(hMid)} ppm with 16th to 84th grid interval ${format(hLow)} to ${format(hHigh)} ppm. CO2 amplitude median ${format(cMid)} ppm with interval ${format(cLow)} to ${format(cHigh)} ppm.`;
+}
+
+function renderMetrics() {
+  const result = state.result;
+  const m = result.metrics;
+  const intervals = result.intervals;
+  const entries = [
+    ["H₂O template amplitude", `${format(intervals.h2o[1])} [${format(intervals.h2o[0])}, ${format(intervals.h2o[2])}] ppm`],
+    ["CO₂ template amplitude", `${format(intervals.co2[1])} [${format(intervals.co2[0])}, ${format(intervals.co2[2])}] ppm`],
+    ["SO₂ nuisance amplitude", `${format(m.so2_nuisance_ppm, 1)} ppm`],
+    ["Reduced χ²", `${format(m.reduced_chi2, 2)} (${format(m.chi2, 1)} / ${m.dof})`],
+    ["Residual RMS", `${format(m.residual_rms_ppm, 1)} ppm`],
+    ["ΔBIC vs no H₂O/CO₂", format(m.delta_bic_vs_no_h2o_co2, 1)],
+    ["Included bins", format(m.bins)],
+    ["Profiled offsets", format(Object.keys(result.offsets).length)],
+  ];
+  $("metrics").innerHTML = entries.map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join("");
+  const poor = m.reduced_chi2 > 1.5 || m.reduced_chi2 < 0.65;
+  $("fitFlag").className = `fit-flag ${poor ? "bad" : "good"}`;
+  $("fitFlag").textContent = poor ? "model inadequate" : "variance compatible";
+  $("interpretationText").textContent = poor
+    ? `The reduced χ² of ${format(m.reduced_chi2, 2)} rejects this template family as an adequate generative description under the selected errors. The narrow grid intervals and ΔBIC therefore describe only conditional feature contrast; they must not be reported as atmospheric constraints or molecular significances.`
+    : `With the selected ${format(result.settings.errorFloor)} ppm error floor, residual variance is broadly compatible with the declared likelihood. This is a sensitivity result: the amplitudes remain phenomenological and do not map to mixing ratios.`;
+}
+
+function renderLegend() {
+  const colours = instrumentColours(state.result.instruments);
+  $("legend").innerHTML = state.result.instruments.map((name) => `<span><i style="--swatch:${colours[name]}"></i>${name.replaceAll("_", " ")}</span>`).join("");
+}
+
+function renderCoverage() {
+  const groups = state.dataset.points.reduce((accumulator, point) => {
+    (accumulator[point.instrument] ||= []).push(point);
+    return accumulator;
+  }, {});
+  $("coverageRows").innerHTML = Object.entries(groups).sort(([a], [b]) => a.localeCompare(b)).map(([name, points]) => {
+    const errors = points.map((point) => point.uncertainty_ppm).sort((a, b) => a - b);
+    const median = errors[Math.floor(errors.length / 2)];
+    const wavelengths = points.map((point) => point.wavelength_um);
+    return `<tr><th scope="row">${name.replaceAll("_", " ")}</th><td>${points.length}</td><td>${format(Math.min(...wavelengths), 2)}–${format(Math.max(...wavelengths), 2)}</td><td>${format(median, 1)}</td></tr>`;
+  }).join("");
+  $("provenanceNote").textContent = `Archive MD5 ${state.dataset.archive.md5}. Six source CSV files are pinned by SHA-256; ${state.dataset.excluded_saturated_prism_bins} flagged PRISM bins are excluded. ${state.dataset.covariance}`;
+}
+
+function render() {
+  renderLegend(); renderMetrics(); drawSpectrum(); drawPosterior();
+}
+
+function requestAnalysis() {
+  if (!state.dataset) return;
+  clearTimeout(state.timer);
+  state.timer = setTimeout(() => {
+    state.requestId += 1;
+    $("workerStatus").textContent = "Evaluating likelihood grid";
+    $("runId").textContent = `analysis ${String(state.requestId).padStart(2, "0")}`;
+    state.worker.postMessage({
+      requestId: state.requestId,
+      spectrum: state.dataset.points,
+      options: {
+        instrument: $("instrument").value,
+        errorFloor: Number($("errorFloor").value),
+        widthScale: Number($("widthScale").value),
+        includeSlope: $("includeSlope").checked,
+        gridSize: 51,
+        amplitudeMax: 1400,
+      },
+    });
+  }, 90);
+}
+
+async function initialise() {
+  const response = await fetch("data/wasp39b_benchmark.json", { cache: "no-cache" });
+  if (!response.ok) throw new Error(`Dataset request failed (${response.status})`);
+  state.dataset = await response.json();
+  const instruments = [...new Set(state.dataset.points.map((point) => point.instrument))].sort();
+  for (const instrument of instruments) {
+    const option = document.createElement("option"); option.value = instrument; option.textContent = instrument.replaceAll("_", " "); $("instrument").appendChild(option);
+  }
+  renderCoverage();
+  state.worker = new Worker("physicsWorker.js");
+  state.worker.onmessage = (event) => {
+    if (event.data.requestId !== state.requestId) return;
+    if (!event.data.ok) { $("workerStatus").textContent = event.data.error; return; }
+    state.result = event.data.result;
+    $("workerStatus").textContent = `${state.result.metrics.bins} bins · likelihood complete`;
+    render();
+  };
+  state.worker.onerror = (event) => { $("workerStatus").textContent = `Worker error: ${event.message}`; };
+  requestAnalysis();
+}
+
+$("errorFloor").addEventListener("input", () => { $("errorFloorValue").textContent = `${$("errorFloor").value} ppm`; requestAnalysis(); });
+$("widthScale").addEventListener("input", () => { $("widthScaleValue").textContent = `${Number($("widthScale").value).toFixed(2)}×`; requestAnalysis(); });
+$("instrument").addEventListener("change", requestAnalysis);
+$("includeSlope").addEventListener("change", requestAnalysis);
+$("reset").addEventListener("click", () => {
+  $("instrument").value = "all"; $("errorFloor").value = 0; $("errorFloorValue").textContent = "0 ppm";
+  $("widthScale").value = 1; $("widthScaleValue").textContent = "1.00×"; $("includeSlope").checked = true; requestAnalysis();
+});
+window.addEventListener("resize", () => { if (state.result) { drawSpectrum(); drawPosterior(); } });
+
+initialise().catch((error) => { $("workerStatus").textContent = error.message; });
