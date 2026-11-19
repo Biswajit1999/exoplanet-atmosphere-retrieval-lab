@@ -22,6 +22,10 @@ slope. It also reports a goodness-of-fit check before any interpretation.
 
 ## Data
 
+![WASP-39 b transmission depths with marginal error bars, coloured by the six JWST products, and a companion panel of reported uncertainty](assets/wasp39b-transmission-evidence.png)
+
+[Open the laboratory and data coverage figure](https://biswajit1999.github.io/exoplanet-atmosphere-retrieval-lab/#data-coverage). The panels show the 355 included bins before per-product offsets or any feature-template fit. The bars use the marginal uncertainties after the radius-ratio conversion documented below. Install Matplotlib and run `python scripts/plot_transmission_spectrum.py` to reproduce them.
+
 The source is Carter, May et al. (2024), *A benchmark JWST near-infrared
 spectrum for the exoplanet WASP-39 b*, Nature Astronomy 8, 1008–1019. The
 complete upstream Zenodo archive is 1.7 GB and has MD5
