@@ -1,0 +1,41 @@
+{
+  "project": "WASP-39 b Spectral Inference Laboratory",
+  "repository": "https://github.com/Biswajit1999/exoplanet-atmosphere-retrieval-lab",
+  "files": [
+    {
+      "label": "Wasp39b benchmark",
+      "path": "data/wasp39b_benchmark.json",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "NIRCam F322W2",
+      "path": "data/source_products/NIRCam_F322W2.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "NIRISS SOSS Order1",
+      "path": "data/source_products/NIRISS_SOSS_Order1.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "NIRISS SOSS Order2",
+      "path": "data/source_products/NIRISS_SOSS_Order2.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "NIRSpec G395H NRS1",
+      "path": "data/source_products/NIRSpec_G395H_NRS1.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "NIRSpec G395H NRS2",
+      "path": "data/source_products/NIRSpec_G395H_NRS2.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "NIRSpec PRISM",
+      "path": "data/source_products/NIRSpec_PRISM.csv",
+      "role": "Data and provenance"
+    }
+  ]
+}
