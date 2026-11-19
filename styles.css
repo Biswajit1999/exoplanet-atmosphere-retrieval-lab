@@ -116,3 +116,22 @@ th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spa
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+.coverage-figure {
+  margin: 1rem clamp(12px, 2vw, 24px);
+}
+.coverage-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.coverage-figure figcaption, .posterior-notice {
+  color: var(--muted);
+  padding: .8rem 0;
+  line-height: 1.6;
+}
+.posterior-notice {
+  margin: 1rem 1.5rem;
+}
+#posteriorCanvas[hidden] {
+  display: none;
+}

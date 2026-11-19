@@ -9,6 +9,12 @@ function instrumentColours(names) {
   return Object.fromEntries([...names].sort().map((name, index) => [name, COLORS[index % COLORS.length]]));
 }
 
+function visibleSpectrum() {
+  if (state.result) return state.result.points;
+  const instrument = $("instrument").value;
+  return state.dataset.points.filter((point) => instrument === "all" || point.instrument === instrument);
+}
+
 function prepareCanvas(canvas) {
   const rect = canvas.getBoundingClientRect();
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -59,9 +65,8 @@ function drawAxes(context, width, height, bounds, labels) {
 }
 
 function drawSpectrum() {
-  if (!state.result) return;
   const { context, width, height } = prepareCanvas($("spectrumCanvas"));
-  const points = state.result.points;
+  const points = visibleSpectrum();
   const xValues = points.map((point) => point.wavelength_um);
   const yLow = points.map((point) => point.transit_depth_ppm - point.uncertainty_ppm);
   const yHigh = points.map((point) => point.transit_depth_ppm + point.uncertainty_ppm);
@@ -70,18 +75,21 @@ function drawSpectrum() {
     xMin: Math.min(...xValues), xMax: Math.max(...xValues),
     yMin: Math.min(...yLow) - padding, yMax: Math.max(...yHigh) + padding,
   }, { x: "Wavelength (µm)", y: "Transit depth (ppm)" });
-  const colours = instrumentColours(state.result.instruments);
-  for (const instrument of state.result.instruments) {
+  const instruments = [...new Set(points.map((point) => point.instrument))];
+  const colours = instrumentColours(instruments);
+  for (const instrument of instruments) {
     const selected = points.filter((point) => point.instrument === instrument).sort((a, b) => a.wavelength_um - b.wavelength_um);
     context.strokeStyle = colours[instrument];
     context.globalAlpha = 0.78;
     context.lineWidth = 1.5;
-    context.beginPath();
-    selected.forEach((point, index) => {
-      const px = axes.x(point.wavelength_um), py = axes.y(point.model_ppm);
-      if (index) context.lineTo(px, py); else context.moveTo(px, py);
-    });
-    context.stroke();
+    if (state.result) {
+      context.beginPath();
+      selected.forEach((point, index) => {
+        const px = axes.x(point.wavelength_um), py = axes.y(point.model_ppm);
+        if (index) context.lineTo(px, py); else context.moveTo(px, py);
+      });
+      context.stroke();
+    }
     context.globalAlpha = 0.48;
     context.lineWidth = 1;
     for (const point of selected) {
@@ -94,7 +102,11 @@ function drawSpectrum() {
     }
     context.globalAlpha = 1;
   }
-  $("spectrumSummary").textContent = `${points.length} spectral bins across ${state.result.instruments.length} products. The profiled model has residual RMS ${format(state.result.metrics.residual_rms_ppm, 1)} ppm and reduced chi-squared ${format(state.result.metrics.reduced_chi2, 2)}.`;
+  const productCount = instruments.length === 1 ? "one product" : `${instruments.length} products`;
+  const contextText = state.result
+    ? `The profiled model has residual RMS ${format(state.result.metrics.residual_rms_ppm, 1)} ppm and reduced chi-squared ${format(state.result.metrics.reduced_chi2, 2)}.`
+    : "The graph shows measured points and their marginal uncertainties.";
+  $("spectrumSummary").textContent = `${points.length} spectral bins across ${productCount}. ${contextText}`;
 }
 
 function posteriorColour(value, maximum) {
@@ -163,8 +175,9 @@ function renderMetrics() {
 }
 
 function renderLegend() {
-  const colours = instrumentColours(state.result.instruments);
-  $("legend").innerHTML = state.result.instruments.map((name) => `<span><i style="--swatch:${colours[name]}"></i>${name.replaceAll("_", " ")}</span>`).join("");
+  const instruments = [...new Set(visibleSpectrum().map((point) => point.instrument))].sort();
+  const colours = instrumentColours(instruments);
+  $("legend").innerHTML = instruments.map((name) => `<span><i style="--swatch:${colours[name]}"></i>${name.replaceAll("_", " ")}</span>`).join("");
 }
 
 function renderCoverage() {
@@ -174,7 +187,7 @@ function renderCoverage() {
   }, {});
   $("coverageRows").innerHTML = Object.entries(groups).sort(([a], [b]) => a.localeCompare(b)).map(([name, points]) => {
     const errors = points.map((point) => point.uncertainty_ppm).sort((a, b) => a - b);
-    const median = errors[Math.floor(errors.length / 2)];
+    const median = (errors[Math.floor((errors.length - 1) / 2)] + errors[Math.floor(errors.length / 2)]) / 2;
     const wavelengths = points.map((point) => point.wavelength_um);
     return `<tr><th scope="row">${name.replaceAll("_", " ")}</th><td>${points.length}</td><td>${format(Math.min(...wavelengths), 2)}–${format(Math.max(...wavelengths), 2)}</td><td>${format(median, 1)}</td></tr>`;
   }).join("");
@@ -182,18 +195,35 @@ function renderCoverage() {
 }
 
 function render() {
+  $("posteriorCanvas").hidden = false;
+  $("posteriorNotice").hidden = true;
   renderLegend(); renderMetrics(); drawSpectrum(); drawPosterior();
 }
 
+function showSpectrumOnly(message, pending = false) {
+  state.result = null;
+  $("metrics").replaceChildren();
+  $("fitFlag").className = pending ? "fit-flag" : "fit-flag bad";
+  $("fitFlag").textContent = pending ? "evaluating" : "fit unavailable";
+  $("interpretationText").textContent = message;
+  $("posteriorCanvas").hidden = true;
+  $("posteriorNotice").hidden = false;
+  $("posteriorNotice").textContent = message;
+  $("posteriorSummary").textContent = message;
+  renderLegend();
+  drawSpectrum();
+}
+
 function requestAnalysis() {
-  if (!state.dataset) return;
+  if (!state.worker) return;
   clearTimeout(state.timer);
+  const requestId = ++state.requestId;
+  $("workerStatus").textContent = "Evaluating likelihood grid";
+  $("runId").textContent = `analysis ${String(requestId).padStart(2, "0")}`;
+  showSpectrumOnly("Calculating the fit for this selection.", true);
   state.timer = setTimeout(() => {
-    state.requestId += 1;
-    $("workerStatus").textContent = "Evaluating likelihood grid";
-    $("runId").textContent = `analysis ${String(state.requestId).padStart(2, "0")}`;
     state.worker.postMessage({
-      requestId: state.requestId,
+      requestId,
       spectrum: state.dataset.points,
       options: {
         instrument: $("instrument").value,
@@ -219,12 +249,19 @@ async function initialise() {
   state.worker = new Worker("physicsWorker.js");
   state.worker.onmessage = (event) => {
     if (event.data.requestId !== state.requestId) return;
-    if (!event.data.ok) { $("workerStatus").textContent = event.data.error; return; }
+    if (!event.data.ok) {
+      $("workerStatus").textContent = "Observed spectrum only";
+      showSpectrumOnly(event.data.error);
+      return;
+    }
     state.result = event.data.result;
     $("workerStatus").textContent = `${state.result.metrics.bins} bins · likelihood complete`;
     render();
   };
-  state.worker.onerror = (event) => { $("workerStatus").textContent = `Worker error: ${event.message}`; };
+  state.worker.onerror = (event) => {
+    $("workerStatus").textContent = "Observed spectrum only";
+    showSpectrumOnly(`Worker error: ${event.message}`);
+  };
   requestAnalysis();
 }
 
@@ -236,6 +273,6 @@ $("reset").addEventListener("click", () => {
   $("instrument").value = "all"; $("errorFloor").value = 0; $("errorFloorValue").textContent = "0 ppm";
   $("widthScale").value = 1; $("widthScaleValue").textContent = "1.00×"; $("includeSlope").checked = true; requestAnalysis();
 });
-window.addEventListener("resize", () => { if (state.result) { drawSpectrum(); drawPosterior(); } });
+window.addEventListener("resize", () => { if (state.dataset) { drawSpectrum(); drawPosterior(); } });
 
 initialise().catch((error) => { $("workerStatus").textContent = error.message; });

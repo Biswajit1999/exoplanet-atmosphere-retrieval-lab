@@ -79,7 +79,7 @@
       <select id="instrument">
         <option value="all">All six detector/order products</option>
       </select>
-      <p class="field-note">Each selected product receives its own profiled depth offset.</p>
+      <p class="field-note">Each selected product receives its own profiled depth offset. A product with too little wavelength coverage can still be viewed as an observed spectrum if the fit is unavailable.</p>
 
       <label for="errorFloor">Additional error floor <output id="errorFloorValue">0 ppm</output></label>
       <input id="errorFloor" type="range" min="0" max="300" step="10" value="0">
@@ -118,6 +118,7 @@
           <span class="figure-tag">flat non-negative priors</span>
         </div>
         <canvas id="posteriorCanvas" role="img" aria-describedby="posteriorSummary"></canvas>
+        <p id="posteriorNotice" class="posterior-notice" hidden></p>
         <p id="posteriorSummary" class="sr-summary">Posterior surface is loading.</p>
       </article>
 
@@ -133,7 +134,7 @@
         </div>
       </article>
 
-      <article class="figure-card provenance-card">
+      <article class="figure-card provenance-card" id="data-coverage">
         <div class="figure-heading">
           <div><p>Audit trail</p><h2>Data coverage and provenance</h2></div>
           <a href="https://doi.org/10.5281/zenodo.10161743" target="_blank" rel="noopener">Zenodo DOI</a>
@@ -145,6 +146,10 @@
             <tbody id="coverageRows"></tbody>
           </table>
         </div>
+        <figure class="coverage-figure">
+          <img src="assets/wasp39b-transmission-evidence.png" width="966" height="690" loading="lazy" alt="WASP-39 b transmission depth and marginal uncertainty versus wavelength, grouped by the six JWST detector products">
+          <figcaption>All 355 included bins before fitting, with the marginal errors retained in the browser dataset. <a href="data/wasp39b_benchmark.json" download>Download the plotted bins</a> · <a href="assets/wasp39b-transmission-evidence.png" download>Download the figure</a></figcaption>
+        </figure>
         <p class="provenance-note" id="provenanceNote"></p>
       </article>
     </section>
