@@ -1,0 +1,772 @@
+{
+  "schema": 1,
+  "project": "WASP-39 b Spectral Inference Laboratory",
+  "tables": [
+    {
+      "path": "data/source_products/NIRCam_F322W2.csv",
+      "label": "NIRCam F322W2",
+      "role": "Data and provenance",
+      "rows": 49,
+      "width_mismatches": 0,
+      "columns": [
+        {
+          "name": "",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 48.0
+        },
+        {
+          "name": "wave",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 2.4327832460403442,
+          "maximum": 3.988267183303833
+        },
+        {
+          "name": "wave_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 2.4203596115112305,
+          "maximum": 3.9519577026367188
+        },
+        {
+          "name": "wave_hig",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 2.445206880569458,
+          "maximum": 4.024576663970947
+        },
+        {
+          "name": "rp/rs",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.1440569265241584,
+          "maximum": 0.148036031251366
+        },
+        {
+          "name": "rp/rs_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0002708172273193,
+          "maximum": 0.0004922497127282
+        },
+        {
+          "name": "rp/rs_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.000276114495862,
+          "maximum": 0.0004935408558081
+        },
+        {
+          "name": "u1",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0455277465591689,
+          "maximum": 0.1524224800538747
+        },
+        {
+          "name": "u1_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0264667940760511,
+          "maximum": 0.0734566856656545
+        },
+        {
+          "name": "u1_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0241161586182074,
+          "maximum": 0.0767956838599343
+        },
+        {
+          "name": "u2",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0404327608110451,
+          "maximum": 0.2205985952924908
+        },
+        {
+          "name": "u2_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0223573377682181,
+          "maximum": 0.1016840426396561
+        },
+        {
+          "name": "u2_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 49,
+          "nonfinite": 0,
+          "minimum": 0.0408907803990502,
+          "maximum": 0.1051645200251945
+        }
+      ]
+    },
+    {
+      "path": "data/source_products/NIRISS_SOSS_Order1.csv",
+      "label": "NIRISS SOSS Order1",
+      "role": "Data and provenance",
+      "rows": 108,
+      "width_mismatches": 0,
+      "columns": [
+        {
+          "name": "",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 107.0
+        },
+        {
+          "name": "wave",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.8771132776231615,
+          "maximum": 2.8048367953225135
+        },
+        {
+          "name": "wave_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.8726608697077982,
+          "maximum": 2.8018119832990136
+        },
+        {
+          "name": "wave_hig",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.8815656855385248,
+          "maximum": 2.807861607346013
+        },
+        {
+          "name": "rp/rs",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.1442743288934929,
+          "maximum": 0.147917765886496
+        },
+        {
+          "name": "rp/rs_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0001661630647527,
+          "maximum": 0.0016017154895093
+        },
+        {
+          "name": "rp/rs_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0001560310825642,
+          "maximum": 0.0016890078396674
+        },
+        {
+          "name": "u1",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0491235496128449,
+          "maximum": 0.3227832010909062
+        },
+        {
+          "name": "u1_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0290970065337466,
+          "maximum": 0.0944123085783115
+        },
+        {
+          "name": "u1_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0382095161681674,
+          "maximum": 0.0918615732025254
+        },
+        {
+          "name": "u2",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0648462476813242,
+          "maximum": 0.3456572679808751
+        },
+        {
+          "name": "u2_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0369816935085653,
+          "maximum": 0.1199744066213396
+        },
+        {
+          "name": "u2_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 108,
+          "nonfinite": 0,
+          "minimum": 0.0415454817081004,
+          "maximum": 0.1522351421957604
+        }
+      ]
+    },
+    {
+      "path": "data/source_products/NIRISS_SOSS_Order2.csv",
+      "label": "NIRISS SOSS Order2",
+      "role": "Data and provenance",
+      "rows": 27,
+      "width_mismatches": 0,
+      "columns": [
+        {
+          "name": "",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 26.0
+        },
+        {
+          "name": "wave",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.6329787564466036,
+          "maximum": 0.8484061256231779
+        },
+        {
+          "name": "wave_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.629621692200637,
+          "maximum": 0.8435116038750111
+        },
+        {
+          "name": "wave_hig",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.6363358206925702,
+          "maximum": 0.8533006473713446
+        },
+        {
+          "name": "rp/rs",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.1443508029434047,
+          "maximum": 0.1459212710390859
+        },
+        {
+          "name": "rp/rs_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.0002339653771305,
+          "maximum": 0.0004792913455114
+        },
+        {
+          "name": "rp/rs_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.00020917674342,
+          "maximum": 0.0004952083228879
+        },
+        {
+          "name": "u1",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.184332354850904,
+          "maximum": 0.4827692083825861
+        },
+        {
+          "name": "u1_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.0488470797438561,
+          "maximum": 0.1059209873772324
+        },
+        {
+          "name": "u1_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.0359055415136648,
+          "maximum": 0.1126919145857191
+        },
+        {
+          "name": "u2",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.0821564155576822,
+          "maximum": 0.5947060285309954
+        },
+        {
+          "name": "u2_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.0474743311129519,
+          "maximum": 0.1548641301841335
+        },
+        {
+          "name": "u2_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 27,
+          "nonfinite": 0,
+          "minimum": 0.0692672311532699,
+          "maximum": 0.1497773105140494
+        }
+      ]
+    },
+    {
+      "path": "data/source_products/NIRSpec_G395H_NRS1.csv",
+      "label": "NIRSpec G395H NRS1",
+      "role": "Data and provenance",
+      "rows": 30,
+      "width_mismatches": 0,
+      "columns": [
+        {
+          "name": "",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 29.0
+        },
+        {
+          "name": "wave",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 2.7388248563485935,
+          "maximum": 3.68650738876667
+        },
+        {
+          "name": "wave_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 2.724906328307929,
+          "maximum": 3.657574538056277
+        },
+        {
+          "name": "wave_hig",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 2.752743384389258,
+          "maximum": 3.7154402394770627
+        },
+        {
+          "name": "rp/rs",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.1449237175654021,
+          "maximum": 0.1487742121221713
+        },
+        {
+          "name": "rp/rs_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.000208095285672,
+          "maximum": 0.0013819790381061
+        },
+        {
+          "name": "rp/rs_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.0002024687535565,
+          "maximum": 0.0012354820356352
+        },
+        {
+          "name": "u1",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.0392577224984468,
+          "maximum": 0.1449779064827178
+        },
+        {
+          "name": "u1_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.0233104204985843,
+          "maximum": 0.0869393967866344
+        },
+        {
+          "name": "u1_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.0321108295328042,
+          "maximum": 0.1164428625710899
+        },
+        {
+          "name": "u2",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.0769341361957994,
+          "maximum": 0.1998844855896377
+        },
+        {
+          "name": "u2_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.045384750600693,
+          "maximum": 0.1067916044748061
+        },
+        {
+          "name": "u2_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 30,
+          "nonfinite": 0,
+          "minimum": 0.0324140917873612,
+          "maximum": 0.1134141126897633
+        }
+      ]
+    },
+    {
+      "path": "data/source_products/NIRSpec_G395H_NRS2.csv",
+      "label": "NIRSpec G395H NRS2",
+      "role": "Data and provenance",
+      "rows": 29,
+      "width_mismatches": 0,
+      "columns": [
+        {
+          "name": "",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 28.0
+        },
+        {
+          "name": "wave",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 3.8486445410940338,
+          "maximum": 5.127861279878553
+        },
+        {
+          "name": "wave_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 3.829173941825524,
+          "maximum": 5.084036871451639
+        },
+        {
+          "name": "wave_hig",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 3.8681151403625433,
+          "maximum": 5.171685688305466
+        },
+        {
+          "name": "rp/rs",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.1446751660703638,
+          "maximum": 0.1508503103479736
+        },
+        {
+          "name": "rp/rs_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0002459408819971,
+          "maximum": 0.0004493073615713
+        },
+        {
+          "name": "rp/rs_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0002516418868224,
+          "maximum": 0.0004448962499936
+        },
+        {
+          "name": "u1",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0487392482764028,
+          "maximum": 0.1304292909763858
+        },
+        {
+          "name": "u1_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0314928305852118,
+          "maximum": 0.0615934760260221
+        },
+        {
+          "name": "u1_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0327659352051281,
+          "maximum": 0.088836555289797
+        },
+        {
+          "name": "u2",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0623672693136141,
+          "maximum": 0.1156637494021788
+        },
+        {
+          "name": "u2_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0404313825722126,
+          "maximum": 0.0613289986996918
+        },
+        {
+          "name": "u2_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 29,
+          "nonfinite": 0,
+          "minimum": 0.0443128196483446,
+          "maximum": 0.0810855025255398
+        }
+      ]
+    },
+    {
+      "path": "data/source_products/NIRSpec_PRISM.csv",
+      "label": "NIRSpec PRISM",
+      "role": "Data and provenance",
+      "rows": 147,
+      "width_mismatches": 0,
+      "columns": [
+        {
+          "name": "Unnamed: 0",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 146.0
+        },
+        {
+          "name": "wave",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.521324585,
+          "maximum": 5.344124765
+        },
+        {
+          "name": "wave_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.5170755495,
+          "maximum": 5.336858701000001
+        },
+        {
+          "name": "wave_hig",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.5255736205,
+          "maximum": 5.351390829
+        },
+        {
+          "name": "rp/rs",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.1443684354775262,
+          "maximum": 0.1514486565088999
+        },
+        {
+          "name": "rp/rs_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0001152326130272,
+          "maximum": 0.0011980644774519
+        },
+        {
+          "name": "rp/rs_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0001112333869109,
+          "maximum": 0.0011586733889679
+        },
+        {
+          "name": "u1",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.033245056632297,
+          "maximum": 0.5517682744958621
+        },
+        {
+          "name": "u1_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0199570428131045,
+          "maximum": 0.1573440564164609
+        },
+        {
+          "name": "u1_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0254337652505099,
+          "maximum": 0.1019104692474519
+        },
+        {
+          "name": "u2",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0545202656798444,
+          "maximum": 0.30728183535976694
+        },
+        {
+          "name": "u2_err_low",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0314678905645952,
+          "maximum": 0.1355013910342448
+        },
+        {
+          "name": "u2_err_hih",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0325613268328518,
+          "maximum": 0.2207194298762508
+        },
+        {
+          "name": "satflag",
+          "blank": 0,
+          "text": 0,
+          "finite": 147,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}
