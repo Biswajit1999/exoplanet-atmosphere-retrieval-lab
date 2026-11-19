@@ -175,3 +175,17 @@ tests/inference.test.js     numerical regression tests
 
 Code is MIT licensed. The published data retain their upstream attribution
 and licensing; cite the dataset and paper when reusing the spectrum.
+
+## Research evidence and downloads
+
+- [Download the machine-readable table profiles](evidence/table-profiles.json) for 6 archived tables. Open `table-evidence.html` from the checkout for the coverage chart.
+- Start with [Wasp39b benchmark](data/wasp39b_benchmark.json), [NIRCam F322W2](data/source_products/NIRCam_F322W2.csv), [NIRISS SOSS Order1](data/source_products/NIRISS_SOSS_Order1.csv).
+
+Run these commands from the repository root to rebuild the published evidence.
+
+```sh
+python scripts/evidence_catalog.py
+python scripts/render_evidence_page.py
+python scripts/profile_evidence_tables.py
+python scripts/render_table_profiles.py
+```
