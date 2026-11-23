@@ -1,0 +1,5 @@
+# Linearized template identifiability and conditional coverage
+
+Two independent diagnostics: (1) singular values and condition number of a whitened design matrix to reveal near-degenerate template/nuisance directions; (2) seeded Gaussian parametric simulations to check marginal 95% confidence-interval coverage when the assumed independent Gaussian noise scale is correct or misspecified.
+
+Run `python -m unittest discover -s . -p 'test_*.py'` from this directory; NumPy is required. These calculations are a linearized diagnostic, **not** the browser's nonnegative, bounded 2-D posterior grid. They do not use or update the 355-bin WASP-39 b published benchmark, and coverage of the browser posterior is not established. Fixed-design simulations omit template uncertainty, systematics, correlated residuals and selection effects. Underestimated noise should produce undercoverage. AI-assisted implementation and testing; Biswajit Jana is the requested sole Git author. Do not claim atmospheric detection significance from these tests.
